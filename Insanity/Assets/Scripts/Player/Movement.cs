@@ -1,11 +1,12 @@
+using StatSystem;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-    [SerializeField] public float speed;
-    [SerializeField] private float dash_speed;
+    private float speed => m_StatController.stats["Speed"].value;
+    private float dash_speed => m_StatController.stats["DashRange"].value;
 
     [SerializeField] private bool is_dashing = false;
 
@@ -19,6 +20,13 @@ public class Movement : MonoBehaviour
     [SerializeField] private float dash_timer;
     [SerializeField] private float dash_duration, dash_duration_internal;
     //[SerializeField] GameObject dashEffect;
+
+    protected StatController m_StatController;
+
+    protected virtual void Awake()
+    {
+        m_StatController = GetComponent<StatController>();
+    }
 
     void Start()
     {
@@ -48,6 +56,34 @@ public class Movement : MonoBehaviour
             {
                 is_dashing = true;
             }
+        }
+
+        if (Input.GetKeyDown(KeyCode.H))
+        {
+            m_StatController.stats["Speed"].AddModifier(
+                new StatModifier { 
+                    source = this,
+                    //magnitude = 0.05f * m_StatController.stats["Speed"].value,
+                    magnitude = 1.5f,
+                    type = ModifierOperationType.Multiplicative
+                });
+            m_StatController.stats["Speed"].AddModifier(
+                new StatModifier
+                {
+                    source = this,
+                    //magnitude = 0.05f * m_StatController.stats["Speed"].value,
+                    magnitude = 12,
+                    type = ModifierOperationType.Additive
+                });
+            m_StatController.stats["Speed"].AddModifier(
+                new StatModifier
+                {
+                    source = this,
+                    //magnitude = 0.05f * m_StatController.stats["Speed"].value,
+                    magnitude = 1.5f,
+                    type = ModifierOperationType.Multiplicative
+                });
+            Debug.Log(speed);
         }
     }
 
