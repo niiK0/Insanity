@@ -27,7 +27,13 @@ public class GameInput : MonoBehaviour
         OnDashAction?.Invoke();
     }
 
-    public Vector2 GetMovementVectorNormalized()
+    public Vector2 GetMouseVector()
+    {
+        Vector2 inputVector = (controls.Player.Mouse.ReadValue<Vector2>());
+        return inputVector;
+    }
+
+    public Vector2 GetMovementVector()
     {
         Vector2 inputVector = controls.Player.Movement.ReadValue<Vector2>();
         return inputVector;

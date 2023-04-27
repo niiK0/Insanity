@@ -21,6 +21,8 @@ public class Movement : MonoBehaviour
     [SerializeField] private float dash_cooldown;
     [SerializeField] private float dash_timer;
     [SerializeField] private float dash_duration, dash_duration_internal;
+    [SerializeField] private Transform visualTransform;
+    //[SerializeField] private Camera camera;
     [SerializeField] private GameInput gameInput;
 
     //[SerializeField] GameObject dashEffect;
@@ -37,6 +39,7 @@ public class Movement : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         dash_duration_internal = dash_duration;
         gameInput.OnDashAction += GameInput_OnDashAction;
+        //Cursor.lockState = CursorLockMode.Locked;
     }
 
     private void GameInput_OnDashAction()
@@ -50,8 +53,20 @@ public class Movement : MonoBehaviour
 
     void Update()
     {
-        move_input = gameInput.GetMovementVectorNormalized();
+        move_input = gameInput.GetMovementVector();
         move_velocity = move_input * speed;
+
+        Vector2 mouseInput = gameInput.GetMouseVector();
+        Ray mouseRay = Camera.main.ScreenPointToRay(new Vector3(mouseInput.x, mouseInput.y, 0));
+        Plane p = new Plane(Vector3.up, transform.position);
+        if (p.Raycast(mouseRay, out float hitDist))
+        { 
+            Vector3 hitPoint = mouseRay.GetPoint(hitDist);
+            visualTransform.LookAt(hitPoint);
+            visualTransform.rotation = Quaternion.Euler(new Vector3(0, visualTransform.rotation.eulerAngles.y, 0));
+        }
+        //Vector3 lookPosition = Camera.main.ScreenToWorldPoint(new Vector3(mouseInput.x, mouseInput.y, 1));
+        //visualTransform.LookAt(lookPosition);
 
         if (dash_duration_internal <= dash_duration && dash_duration_internal >= 0 && is_dashing)
         {
@@ -110,11 +125,6 @@ public class Movement : MonoBehaviour
         {
             rb.MovePosition(rb.position + new Vector3(move_velocity.x, 0, move_velocity.y) * Time.fixedDeltaTime);
         }
-    }
-
-    private void Movement_performed(InputAction.CallbackContext context)
-    {
-        throw new NotImplementedException();
     }
 
     //IEnumerator dashEffectCall()
