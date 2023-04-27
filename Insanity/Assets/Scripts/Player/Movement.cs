@@ -1,7 +1,9 @@
 using StatSystem;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.InputSystem;
 using UnityEngine;
+using System;
 
 public class Movement : MonoBehaviour
 {
@@ -11,14 +13,16 @@ public class Movement : MonoBehaviour
     [SerializeField] private bool is_dashing = false;
 
     private Rigidbody rb;
-    private Vector3 move_velocity;
-    private Vector3 dash_velocity;
+    private Vector2 move_velocity;
+    private Vector2 dash_velocity;
 
-    [SerializeField] private Vector3 move_input;
+    [SerializeField] private Vector2 move_input;
     [SerializeField] private LayerMask dash_layer_mask;
     [SerializeField] private float dash_cooldown;
     [SerializeField] private float dash_timer;
     [SerializeField] private float dash_duration, dash_duration_internal;
+    [SerializeField] private GameInput gameInput;
+
     //[SerializeField] GameObject dashEffect;
 
     protected StatController m_StatController;
@@ -32,13 +36,22 @@ public class Movement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         dash_duration_internal = dash_duration;
+        gameInput.OnDashAction += GameInput_OnDashAction;
+    }
+
+    private void GameInput_OnDashAction()
+    {
+        if (dash_timer >= dash_cooldown)
+        {
+            dash_velocity = move_input * dash_speed;
+            is_dashing = true;
+        }
     }
 
     void Update()
     {
-        move_input = new Vector3(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized;
+        move_input = gameInput.GetMovementVectorNormalized();
         move_velocity = move_input * speed;
-        dash_velocity = move_input * dash_speed;
 
         if (dash_duration_internal <= dash_duration && dash_duration_internal >= 0 && is_dashing)
         {
@@ -48,14 +61,6 @@ public class Movement : MonoBehaviour
         if (dash_timer <= dash_cooldown)
         {
             dash_timer += 1 * Time.deltaTime;
-        }
-
-        if (Input.GetButtonDown("Jump"))
-        {
-            if (dash_timer >= dash_cooldown)
-            {
-                is_dashing = true;
-            }
         }
 
         if (Input.GetKeyDown(KeyCode.H))
@@ -91,7 +96,7 @@ public class Movement : MonoBehaviour
     {
         if (is_dashing)
         {
-            rb.MovePosition(rb.position + dash_velocity * Time.fixedDeltaTime);
+            rb.MovePosition(rb.position + new Vector3(dash_velocity.x, 0, dash_velocity.y) * Time.fixedDeltaTime);
 
             if (dash_duration_internal <= 0)
             {
@@ -103,8 +108,13 @@ public class Movement : MonoBehaviour
         }
         else
         {
-            rb.MovePosition(rb.position + move_velocity * Time.fixedDeltaTime);
+            rb.MovePosition(rb.position + new Vector3(move_velocity.x, 0, move_velocity.y) * Time.fixedDeltaTime);
         }
+    }
+
+    private void Movement_performed(InputAction.CallbackContext context)
+    {
+        throw new NotImplementedException();
     }
 
     //IEnumerator dashEffectCall()
