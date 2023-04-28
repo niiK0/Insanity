@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.Interactions;
 using UnityEngine;
 using System;
 
@@ -9,6 +10,7 @@ public class GameInput : MonoBehaviour
     public static GameInput instance = null;
     private Controls controls;
     public event Action OnDashAction;
+    public event Action OnAttackAction;
 
     private void Awake()
     {
@@ -20,6 +22,12 @@ public class GameInput : MonoBehaviour
         controls = new Controls();
         controls.Player.Enable();
         controls.Player.Dash.performed += Dash_performed;
+        controls.Player.Attack.performed += Attack_performed;
+    }
+
+    private void Attack_performed(InputAction.CallbackContext obj)
+    {
+        OnAttackAction?.Invoke();
     }
 
     private void Dash_performed(InputAction.CallbackContext obj)

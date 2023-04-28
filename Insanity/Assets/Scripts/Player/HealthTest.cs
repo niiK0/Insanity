@@ -22,6 +22,8 @@ public class HealthTest : MonoBehaviour
     public event Action<float, bool> damaged;
 
     public TMP_Text sanityText;
+    public TMP_Text healthText;
+
 
     //change later
     public Sanity sanity = new Sanity();
@@ -65,18 +67,18 @@ public class HealthTest : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.L))
-        {
-            sanity.sanity += 1;
-            sanityText.text = sanity.sanity.ToString();
-            sanityChanged?.Invoke();
-        }
-        if (Input.GetKeyDown(KeyCode.K))
-        {
-            sanity.sanity -= 1;
-            sanityText.text = sanity.sanity.ToString();
-            sanityChanged?.Invoke();
-        }
+        //if (Input.GetKeyDown(KeyCode.L))
+        //{
+        //    sanity.sanity += 1;
+        //    sanityText.text = sanity.sanity.ToString();
+        //    sanityChanged?.Invoke();
+        //}
+        //if (Input.GetKeyDown(KeyCode.K))
+        //{
+        //    sanity.sanity -= 1;
+        //    sanityText.text = sanity.sanity.ToString();
+        //    sanityChanged?.Invoke();
+        //}
     }
 
     private void EditModifier()
@@ -98,10 +100,11 @@ public class HealthTest : MonoBehaviour
                     magnitude = (float)sanity.GetStrengthModifier(),
                     type = ModifierOperationType.Sanity
                 });
+
         }
 
-        Debug.Log($"Strength: {m_StatController.stats[s_Strength].value}");
-        Debug.Log($"Health: {m_StatController.stats[s_Health].value}");
+        //Debug.Log($"Strength: {m_StatController.stats[s_Strength].value}");
+        //Debug.Log($"Health: {m_StatController.stats[s_Health].value}");
     }
 
     private void OnStatControllerInitialized()
