@@ -217,7 +217,7 @@ MonoBehaviour:
   move_input: {x: 0, y: 0}
   dash_layer_mask:
     serializedVersion: 2
-    m_Bits: 2147483647
+    m_Bits: 64
   dash_cooldown: 1
   dash_timer: 0
   dash_duration: 0.3
