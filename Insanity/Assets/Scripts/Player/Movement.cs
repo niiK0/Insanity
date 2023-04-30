@@ -52,12 +52,6 @@ public class Movement : MonoBehaviour
         }
     }
 
-    //private void LateUpdate()
-    //{
-    //    if (GetComponent<Attack>().isAttacking == false)
-    //        weaponTransform.rotation = Quaternion.Euler(new Vector3(0, visualTransform.rotation.eulerAngles.y, 0));
-    //}
-
     void Update()
     {
         move_input = gameInput.GetMovementVector();
@@ -121,6 +115,7 @@ public class Movement : MonoBehaviour
         if (is_dashing)
         {
             rb.MovePosition(rb.position + new Vector3(dash_velocity.x, 0, dash_velocity.y) * Time.fixedDeltaTime);
+            //rb.AddForce(new Vector3(dash_velocity.x, 0, dash_velocity.y) * dash_speed * Time.deltaTime);
 
             if (dash_duration_internal <= 0)
             {
