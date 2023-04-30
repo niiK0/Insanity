@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using StatSystem;
 
 public class EnemyMovement : MonoBehaviour
 {
     private Rigidbody rb;
 
-    private float speed = 4;
+    private float speed => m_StatController.stats["Speed"].value;
 
     private bool isMoving = false;
     private float movementTimer = 0;
@@ -14,6 +15,13 @@ public class EnemyMovement : MonoBehaviour
     private float timeMoving = 1f;
 
     private Vector3 currDirection;
+
+    protected StatController m_StatController;
+
+    protected virtual void Awake()
+    {
+        m_StatController = GetComponent<StatController>();
+    }
 
     void Start()
     {

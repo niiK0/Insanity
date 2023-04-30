@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 033a74e8ab7e4cf4abe0ccc7a13107aa, type: 3}
+  m_Name: BossStats
+  m_EditorClassIdentifier: 
+  stats:
+  - {fileID: 11400000, guid: beb2241c5dcd7574aa247300ee00229f, type: 2}
+  - {fileID: 11400000, guid: 46a089cff0e63e64e9250cb5cf31000c, type: 2}
+  - {fileID: 11400000, guid: fd6cdb4573f839c449e68c3f7de333b0, type: 2}
+  attributes:
+  - {fileID: 11400000, guid: 2fa5a7676fa2a324097d51eec99fc5cc, type: 2}
