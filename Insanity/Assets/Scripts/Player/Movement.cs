@@ -22,6 +22,7 @@ public class Movement : MonoBehaviour
     [SerializeField] private float dash_timer;
     [SerializeField] private float dash_duration, dash_duration_internal;
     [SerializeField] private Transform visualTransform;
+    [SerializeField] public Transform weaponTransform;
     //[SerializeField] private Camera camera;
     [SerializeField] private GameInput gameInput;
 
@@ -51,22 +52,30 @@ public class Movement : MonoBehaviour
         }
     }
 
+    //private void LateUpdate()
+    //{
+    //    if (GetComponent<Attack>().isAttacking == false)
+    //        weaponTransform.rotation = Quaternion.Euler(new Vector3(0, visualTransform.rotation.eulerAngles.y, 0));
+    //}
+
     void Update()
     {
         move_input = gameInput.GetMovementVector();
         move_velocity = move_input * speed;
 
-        Vector2 mouseInput = gameInput.GetMouseVector();
-        Ray mouseRay = Camera.main.ScreenPointToRay(new Vector3(mouseInput.x, mouseInput.y, 0));
-        Plane p = new Plane(Vector3.up, transform.position);
-        if (p.Raycast(mouseRay, out float hitDist))
-        { 
-            Vector3 hitPoint = mouseRay.GetPoint(hitDist);
-            visualTransform.LookAt(hitPoint);
-            visualTransform.rotation = Quaternion.Euler(new Vector3(0, visualTransform.rotation.eulerAngles.y, 0));
-        }
-        //Vector3 lookPosition = Camera.main.ScreenToWorldPoint(new Vector3(mouseInput.x, mouseInput.y, 1));
-        //visualTransform.LookAt(lookPosition);
+        //if(GetComponent<Attack>().isAttacking == false)
+        //{
+            Vector2 mouseInput = gameInput.GetMouseVector();
+            Ray mouseRay = Camera.main.ScreenPointToRay(new Vector3(mouseInput.x, mouseInput.y, 0));
+            Plane p = new Plane(Vector3.up, transform.position);
+            if (p.Raycast(mouseRay, out float hitDist))
+            { 
+                Vector3 hitPoint = mouseRay.GetPoint(hitDist);
+                visualTransform.LookAt(hitPoint);
+                visualTransform.rotation = Quaternion.Euler(new Vector3(0, visualTransform.rotation.eulerAngles.y, 0));
+                weaponTransform.rotation = Quaternion.Euler(new Vector3(0, visualTransform.rotation.eulerAngles.y, 0));
+            }
+        //}
 
         if (dash_duration_internal <= dash_duration && dash_duration_internal >= 0 && is_dashing)
         {

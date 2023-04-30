@@ -55,4 +55,8 @@ MonoBehaviour:
     minPosition: {x: 1, y: 4}
     maxPosition: {x: 1, y: 4}
     obligatory: 1
+  - room: {fileID: 1955063980803786608, guid: e9106e4d2a03f474d8993bbe862ce9d4, type: 3}
+    minPosition: {x: 1, y: 4}
+    maxPosition: {x: 1, y: 4}
+    obligatory: 1
   offset: {x: 30, y: 30}
