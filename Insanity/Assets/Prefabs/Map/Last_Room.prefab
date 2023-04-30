@@ -107,6 +107,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3294093045357652200}
   - component: {fileID: 4008690619881818017}
+  - component: {fileID: 7923440874350984004}
   m_Layer: 0
   m_Name: GoToBoss
   m_TagString: Untagged
@@ -137,11 +138,23 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 320409869870405970}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 12, y: 1, z: 12}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &7923440874350984004
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 320409869870405970}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3c5ac0c913df5047a5ec753c1a280aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &372560769093974114
 GameObject:
   m_ObjectHideFlags: 0
@@ -697,7 +710,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8106043821521256517
 Transform:
   m_ObjectHideFlags: 0
@@ -2000,7 +2013,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5901556826989994406
 Transform:
   m_ObjectHideFlags: 0
@@ -2388,7 +2401,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5438331784411681816
 Transform:
   m_ObjectHideFlags: 0
@@ -2485,7 +2498,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4916971495508024222
 Transform:
   m_ObjectHideFlags: 0
