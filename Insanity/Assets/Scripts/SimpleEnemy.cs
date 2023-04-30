@@ -21,13 +21,18 @@ public class SimpleEnemy : MonoBehaviour
     private void Start()
     {
         //healthText.text = health.ToString();
+        player = GameObject.FindWithTag("Player").transform;
     }
 
     // Update is called once per frame
     void Update()
     {
         healthText.text = health.ToString();
-        transform.LookAt(player.transform, Vector3.up);
+        //transform.LookAt(player.transform, Vector3.up);
+        if(health <= 0)
+        {
+            Destroy(this.gameObject);
+        }
     }
 
     public void TakeDamage(GameObject source)
