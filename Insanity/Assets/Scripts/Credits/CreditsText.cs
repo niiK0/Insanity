@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CreditsText : MonoBehaviour
 {
@@ -23,6 +24,11 @@ public class CreditsText : MonoBehaviour
         {
             float distance = moveSpeed * Time.deltaTime;
             textTransform.position += new Vector3(0f, distance, 0f);
+        }
+        else if(elapsedTime >= duration) 
+        {
+            //Go to boss scene
+            SceneManager.LoadScene(0);
         }
     }
 }
