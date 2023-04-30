@@ -1041,8 +1041,8 @@ MonoBehaviour:
   doors:
   - {fileID: 4233019917673835588}
   - {fileID: 1037374750686714292}
-  - {fileID: 4922887885187821243}
   - {fileID: 8435654154589727362}
+  - {fileID: 4922887885187821243}
 --- !u!1 &1955063981127834329
 GameObject:
   m_ObjectHideFlags: 0
@@ -2162,7 +2162,7 @@ Transform:
   m_Children:
   - {fileID: 8963029445173809251}
   m_Father: {fileID: 8514866911971169770}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!33 &713615745981871692
 MeshFilter:
@@ -2967,8 +2967,8 @@ Transform:
   - {fileID: 974142212671161935}
   - {fileID: 3337676036435258062}
   - {fileID: 1396100528031061871}
-  - {fileID: 7839876326451180512}
   - {fileID: 5908224142250813507}
+  - {fileID: 7839876326451180512}
   m_Father: {fileID: 1955063980803786615}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3006,7 +3006,7 @@ Transform:
   m_Children:
   - {fileID: 1321293104173175906}
   m_Father: {fileID: 8514866911971169770}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!33 &1938506482788832964
 MeshFilter:
