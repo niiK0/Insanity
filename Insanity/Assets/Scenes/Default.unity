@@ -1851,7 +1851,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7150161090919988666, guid: 205378f234a52de4fb92f6acbb614bb8, type: 3}
       propertyPath: m_RootOrder
+<<<<<<< HEAD
       value: 11
+=======
+      value: 13
+>>>>>>> parent of ac3eee7 (Enemy damage, player take damage and bullets fixed)
       objectReference: {fileID: 0}
     - target: {fileID: 7150161090919988666, guid: 205378f234a52de4fb92f6acbb614bb8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4368,6 +4372,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3685757684114498585, guid: ab75cddbd85987249bc2b70940b8511a, type: 3}
   m_PrefabInstance: {fileID: 3685757682709783334}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD
 --- !u!114 &1913267448
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4380,6 +4385,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 342b0661942e00e44b11970faa1ccd01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+=======
+>>>>>>> parent of ac3eee7 (Enemy damage, player take damage and bullets fixed)
 --- !u!1 &1923864808
 GameObject:
   m_ObjectHideFlags: 0
@@ -5259,7 +5266,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5966818034984725760, guid: d4b65b6c3b5f1a24cae192044e97f016, type: 3}
       propertyPath: m_RootOrder
+<<<<<<< HEAD
       value: 10
+=======
+      value: 12
+>>>>>>> parent of ac3eee7 (Enemy damage, player take damage and bullets fixed)
       objectReference: {fileID: 0}
     - target: {fileID: 5966818034984725760, guid: d4b65b6c3b5f1a24cae192044e97f016, type: 3}
       propertyPath: m_LocalPosition.x

@@ -33,7 +33,10 @@ public class SimpleEnemy : MonoBehaviour
         if(health <= 0)
         {
             Destroy(this.gameObject);
+<<<<<<< HEAD
             
+=======
+>>>>>>> parent of ac3eee7 (Enemy damage, player take damage and bullets fixed)
         }
     }
 
