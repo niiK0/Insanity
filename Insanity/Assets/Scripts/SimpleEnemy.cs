@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using StatSystem;
+using SanitySystem;
+using UnityEngine.SceneManagement;
 
 public class SimpleEnemy : MonoBehaviour
-{
+{ 
     public Transform player;
     public TMP_Text healthText;
 
@@ -20,14 +22,14 @@ public class SimpleEnemy : MonoBehaviour
 
     private void Start()
     {
-        //healthText.text = health.ToString();
+        healthText.text = health.ToString();
         player = GameObject.FindWithTag("Player").transform;
     }
 
     // Update is called once per frame
     void Update()
     {
-        healthText.text = health.ToString();
+        
         //transform.LookAt(player.transform, Vector3.up);
     }
 
@@ -40,9 +42,19 @@ public class SimpleEnemy : MonoBehaviour
             type = ModifierOperationType.Additive
         });
 
+        healthText.text = health.ToString();
+
+        if (health <= 0 && gameObject.tag.Equals("Boss"))
+        {
+            SceneManager.LoadScene(3);
+        }
+
         if (health <= 0)
         {
             Destroy(gameObject);
+            player.gameObject.GetComponent<SanityStatsScale>().SanityCalcs();
         }
+
+        
     }
 }
