@@ -67,18 +67,6 @@ public class HealthTest : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //if (Input.GetKeyDown(KeyCode.L))
-        //{
-        //    sanity.sanity += 1;
-        //    sanityText.text = sanity.sanity.ToString();
-        //    sanityChanged?.Invoke();
-        //}
-        //if (Input.GetKeyDown(KeyCode.K))
-        //{
-        //    sanity.sanity -= 1;
-        //    sanityText.text = sanity.sanity.ToString();
-        //    sanityChanged?.Invoke();
-        //}
     }
 
     private void EditModifier()

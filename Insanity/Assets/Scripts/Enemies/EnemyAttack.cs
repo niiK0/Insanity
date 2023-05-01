@@ -36,5 +36,6 @@ public class EnemyAttack : MonoBehaviour
     void Attack()
     {
         GameObject projectile = Instantiate(projectilePrefab, shootPosition.position, Quaternion.identity);
+        projectile.GetComponent<EnemyBullet>().enemyWhoShot = gameObject;
     }
 }

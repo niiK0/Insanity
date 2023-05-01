@@ -1,14 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
 using StatSystem;
+using UnityEngine.SceneManagement;
 
-public class SimpleEnemy : MonoBehaviour
+public class SimpleHealth : MonoBehaviour
 {
-    public Transform player;
-    public TMP_Text healthText;
-
     private float health => (m_StatController.stats["Health"] as Attribute).value;
 
     protected StatController m_StatController;
@@ -18,17 +15,14 @@ public class SimpleEnemy : MonoBehaviour
         m_StatController = GetComponent<StatController>();
     }
 
-    private void Start()
+    // Start is called before the first frame update
+    void Start()
     {
-        //healthText.text = health.ToString();
-        player = GameObject.FindWithTag("Player").transform;
     }
 
     // Update is called once per frame
     void Update()
     {
-        healthText.text = health.ToString();
-        //transform.LookAt(player.transform, Vector3.up);
     }
 
     public void TakeDamage(GameObject source)
@@ -36,13 +30,15 @@ public class SimpleEnemy : MonoBehaviour
         m_StatController.stats["Health"].AddModifier(new StatModifier
         {
             source = source,
-            magnitude = -player.GetComponent<StatController>().stats["Strength"].value,
+            magnitude = -source.GetComponent<StatController>().stats["Strength"].value,
             type = ModifierOperationType.Additive
         });
 
+        GetComponent<SanityStatsScale>().healthText.text = health.ToString();
+
         if (health <= 0)
         {
-            Destroy(gameObject);
+            SceneManager.LoadScene(0);
         }
     }
 }
