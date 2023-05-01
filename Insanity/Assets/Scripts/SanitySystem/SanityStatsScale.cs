@@ -34,6 +34,10 @@ public class SanityStatsScale : MonoBehaviour
     public TMP_Text healthText;
     public TMP_Text sanityText;
 
+    //Sanity Mode Stats
+    private bool sanityMode = true;
+    public TMP_Text sanityModeText;
+
     public Sanity sanity = new Sanity();
     public event Action sanityChanged;
 
@@ -83,18 +87,47 @@ public class SanityStatsScale : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.L))
+
+        if (Input.GetKeyDown(KeyCode.Q))
         {
-            sanity.sanity += 1;
-            sanityText.text = sanity.sanity.ToString() + "%";
-            sanityChanged?.Invoke();
+            sanityMode = !sanityMode;
         }
-        if (Input.GetKeyDown(KeyCode.K))
+        SanityModeCheck();
+    }
+
+    private void UpdateText()
+    {
+        strengthText.text = m_StatController.stats[s_Strength].value.ToString();
+        dexterityText.text = m_StatController.stats[s_Dexterity].value.ToString();
+        speedText.text = m_StatController.stats[s_Speed].value.ToString();
+        healthText.text = m_StatController.stats[s_Health].value.ToString();
+        sanityText.text = sanity.sanity.ToString() + "%";
+    }
+
+    private void SanityModeCheck()
+    {
+        if (sanityMode)
         {
-            sanity.sanity -= 1;
-            sanityText.text = sanity.sanity.ToString() + "%";
-            sanityChanged?.Invoke();
+            sanityModeText.text = "Sane"; 
+        }else if (!sanityMode)
+        {
+            sanityModeText.text = "Insane";
         }
+        
+    }
+
+    public void SanityCalcs()
+    {
+        if (sanityMode)
+        {
+            sanity.sanity -= 5;
+            
+        }else if (!sanityMode)
+        {
+            sanity.sanity += 5;
+        }
+        EditModifier();
+        UpdateText();
     }
 
     private void EditModifier()
@@ -132,10 +165,7 @@ public class SanityStatsScale : MonoBehaviour
                 });
         }
 
-        strengthText.text = m_StatController.stats[s_Strength].value.ToString();
-        dexterityText.text = m_StatController.stats[s_Dexterity].value.ToString();
-        speedText.text = m_StatController.stats[s_Speed].value.ToString();
-        healthText.text = m_StatController.stats[s_Health].value.ToString();
+        UpdateText();
 
         //Debug.Log($"Strength: {m_StatController.stats[s_Strength].value}");
         //Debug.Log($"Health: {m_StatController.stats[s_Health].value}");
