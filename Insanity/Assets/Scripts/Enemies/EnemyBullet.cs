@@ -5,7 +5,6 @@ using UnityEngine;
 public class EnemyBullet : MonoBehaviour
 {
     [SerializeField] float projectileSpeed;
-    public GameObject enemyWhoShot;
     private Vector3 moveDirection;
     private Rigidbody rb;
     private Transform player;
@@ -24,7 +23,7 @@ public class EnemyBullet : MonoBehaviour
     {
         if (other.gameObject.tag.Equals("Player"))
         {
-            player.gameObject.GetComponent<SimpleHealth>().TakeDamage(enemyWhoShot);
+            Debug.Log("Player Hit");
             Destroy(gameObject);
         }
     }

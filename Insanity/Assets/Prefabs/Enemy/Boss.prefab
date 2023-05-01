@@ -220,7 +220,7 @@ GameObject:
   - component: {fileID: 5759088589869718832}
   m_Layer: 0
   m_Name: Boss
-  m_TagString: Boss
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -327,7 +327,8 @@ MonoBehaviour:
   isAttacking: 0
   projectilePrefab: {fileID: 3078889176281079572, guid: d4b65b6c3b5f1a24cae192044e97f016, type: 3}
   shootPosition: {fileID: 8198561110162192552}
-  attackCw: 1
+  attackCw: 2
+  projectileForce: 30
 --- !u!1 &7150161092157821793
 GameObject:
   m_ObjectHideFlags: 0
