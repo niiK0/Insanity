@@ -186,7 +186,6 @@ GameObject:
   - component: {fileID: 4058953137059601333}
   - component: {fileID: 8746539350061514988}
   - component: {fileID: 8968585814061050105}
-  - component: {fileID: 3858425059735135692}
   m_Layer: 0
   m_Name: EnemyThatWalks
   m_TagString: Enemy
@@ -280,22 +279,6 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 1, z: 0}
---- !u!114 &3858425059735135692
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7150161090919988667}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a1ff5a18d5f5c624f94f1209024d65b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isAttacking: 0
-  projectilePrefab: {fileID: 3078889176281079572, guid: d4b65b6c3b5f1a24cae192044e97f016, type: 3}
-  shootPosition: {fileID: 7150161092924585037}
-  attackCw: 2
 --- !u!1 &7150161092157821793
 GameObject:
   m_ObjectHideFlags: 0
