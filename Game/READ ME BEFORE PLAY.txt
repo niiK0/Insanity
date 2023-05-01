@@ -1,0 +1,8 @@
+Q - Swap mode (has influence over your stats and sanity meter)
+WASD - Move
+Attack - Left click (you can do up to a combo of 3 attacks)
+Space - Dash
+
+OBJECTIVE: Reach final room (has some pillars) and kill the boss
+
+EXTRA TIP: Enjoy credits.
