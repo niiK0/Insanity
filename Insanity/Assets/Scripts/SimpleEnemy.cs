@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using StatSystem;
+using SanitySystem;
 
 public class SimpleEnemy : MonoBehaviour
 {
@@ -32,6 +33,7 @@ public class SimpleEnemy : MonoBehaviour
         if(health <= 0)
         {
             Destroy(this.gameObject);
+            
         }
     }
 

@@ -1851,7 +1851,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7150161090919988666, guid: 205378f234a52de4fb92f6acbb614bb8, type: 3}
       propertyPath: m_RootOrder
-      value: 13
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 7150161090919988666, guid: 205378f234a52de4fb92f6acbb614bb8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4368,6 +4368,18 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3685757684114498585, guid: ab75cddbd85987249bc2b70940b8511a, type: 3}
   m_PrefabInstance: {fileID: 3685757682709783334}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1913267448
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1913267440}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 342b0661942e00e44b11970faa1ccd01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1923864808
 GameObject:
   m_ObjectHideFlags: 0
@@ -5247,7 +5259,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5966818034984725760, guid: d4b65b6c3b5f1a24cae192044e97f016, type: 3}
       propertyPath: m_RootOrder
-      value: 12
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5966818034984725760, guid: d4b65b6c3b5f1a24cae192044e97f016, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5419,6 +5431,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4588752176610324924, guid: ab75cddbd85987249bc2b70940b8511a, type: 3}
+      propertyPath: camara
+      value: 
+      objectReference: {fileID: 791175308}
+    - target: {fileID: 4588752176610324924, guid: ab75cddbd85987249bc2b70940b8511a, type: 3}
       propertyPath: speedText
       value: 
       objectReference: {fileID: 1972285792}
@@ -5431,6 +5447,22 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1015608473}
     - target: {fileID: 4588752176610324924, guid: ab75cddbd85987249bc2b70940b8511a, type: 3}
+      propertyPath: blueColor.b
+      value: 0.5754717
+      objectReference: {fileID: 0}
+    - target: {fileID: 4588752176610324924, guid: ab75cddbd85987249bc2b70940b8511a, type: 3}
+      propertyPath: blueColor.g
+      value: 0.23918109
+      objectReference: {fileID: 0}
+    - target: {fileID: 4588752176610324924, guid: ab75cddbd85987249bc2b70940b8511a, type: 3}
+      propertyPath: blueColor.r
+      value: 0.035288375
+      objectReference: {fileID: 0}
+    - target: {fileID: 4588752176610324924, guid: ab75cddbd85987249bc2b70940b8511a, type: 3}
+      propertyPath: blueMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 80359f35547876244934a4b69270faa1, type: 2}
+    - target: {fileID: 4588752176610324924, guid: ab75cddbd85987249bc2b70940b8511a, type: 3}
       propertyPath: strengthText
       value: 
       objectReference: {fileID: 1481489444}
@@ -5438,6 +5470,10 @@ PrefabInstance:
       propertyPath: dexterityText
       value: 
       objectReference: {fileID: 964598998}
+    - target: {fileID: 4588752176610324924, guid: ab75cddbd85987249bc2b70940b8511a, type: 3}
+      propertyPath: sanityModeText
+      value: 
+      objectReference: {fileID: 574706067}
     - target: {fileID: 5194606963169299416, guid: ab75cddbd85987249bc2b70940b8511a, type: 3}
       propertyPath: gameInput
       value: 

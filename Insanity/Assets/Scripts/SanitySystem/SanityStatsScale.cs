@@ -6,6 +6,8 @@ using SanitySystem;
 using StatSystem;
 using System;
 using TMPro;
+using UnityEngine.Rendering.Universal;
+
 
 public class SanityStatsScale : MonoBehaviour
 {
@@ -34,6 +36,11 @@ public class SanityStatsScale : MonoBehaviour
     public TMP_Text healthText;
     public TMP_Text sanityText;
 
+    //SanityMode variaveis
+    public bool sanityMode = true;
+    public TMP_Text sanityModeText;
+    
+    //Sanidade do jogador
     public Sanity sanity = new Sanity();
     public event Action sanityChanged;
 
@@ -95,7 +102,39 @@ public class SanityStatsScale : MonoBehaviour
             sanityText.text = sanity.sanity.ToString() + "%";
             sanityChanged?.Invoke();
         }
+        if(Input.GetKeyDown(KeyCode.Q))
+        {
+            sanityMode = !sanityMode;
+        }
+        SanityModeCheck();
     }
+
+    //Sanity mode check 
+    private void SanityModeCheck()
+    {
+        
+        if (sanityMode)
+        {
+            sanityModeText.text = "Sane";
+        }
+        else if (!sanityMode)
+        {
+            sanityModeText.text = "Insane";
+        }
+    }
+
+    //Função que adiciona ou retira sanidade do jogador
+    public void SanityCalcs()
+    {
+        if (sanityMode)
+        {
+            sanity.sanity -= 5;
+        }else if (!sanityMode)
+        {
+            sanity.sanity += 5;
+        }
+    }
+
 
     private void EditModifier()
     {
