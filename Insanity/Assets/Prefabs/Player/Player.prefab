@@ -177,6 +177,7 @@ GameObject:
   - component: {fileID: 800018205045976379}
   - component: {fileID: 5194606963169299416}
   - component: {fileID: 4588752176610324924}
+  - component: {fileID: 5962932254205357183}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -214,7 +215,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   is_dashing: 0
-  move_input: {x: 0, y: 0}
   dash_layer_mask:
     serializedVersion: 2
     m_Bits: 64
@@ -222,6 +222,7 @@ MonoBehaviour:
   dash_timer: 0
   dash_duration: 0.3
   dash_duration_internal: 0
+  move_input: {x: 0, y: 0}
   visualTransform: {fileID: 3685757684195057556}
   weaponTransform: {fileID: 2963779197740322942}
   gameInput: {fileID: 0}
@@ -322,6 +323,22 @@ MonoBehaviour:
   speedText: {fileID: 0}
   healthText: {fileID: 0}
   sanityText: {fileID: 0}
+  sanityModeText: {fileID: 0}
+--- !u!114 &5962932254205357183
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3685757684114498585}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c58d3fb7a56041148a10e6534a5b502e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  visualTransform: {fileID: 3685757684195057556}
+  weaponTransform: {fileID: 2963779197740322942}
+  gameInput: {fileID: 0}
 --- !u!1 &3685757684195057559
 GameObject:
   m_ObjectHideFlags: 0
