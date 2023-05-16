@@ -223,8 +223,6 @@ MonoBehaviour:
   dash_duration: 0.3
   dash_duration_internal: 0
   move_input: {x: 0, y: 0}
-  visualTransform: {fileID: 3685757684195057556}
-  weaponTransform: {fileID: 2963779197740322942}
   gameInput: {fileID: 0}
 --- !u!114 &3685757684114498660
 MonoBehaviour:
@@ -337,7 +335,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   visualTransform: {fileID: 3685757684195057556}
-  weaponTransform: {fileID: 2963779197740322942}
+  weaponTransform: {fileID: 4523202974760557082}
   gameInput: {fileID: 0}
 --- !u!1 &3685757684195057559
 GameObject:
