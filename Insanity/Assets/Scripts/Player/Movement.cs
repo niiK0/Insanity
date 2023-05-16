@@ -21,8 +21,8 @@ public class Movement : MonoBehaviour
     private Rigidbody rb;
 
     //create move/dash velocity variables for later assign
-    private Vector2 move_velocity;
-    private Vector2 dash_velocity;
+    private Vector3 move_velocity;
+    private Vector3 dash_velocity;
 
     [SerializeField] private Vector2 move_input;
 
@@ -51,7 +51,8 @@ public class Movement : MonoBehaviour
     {
         if (dash_timer >= dash_cooldown)
         {
-            dash_velocity = move_input * dash_speed;
+            dash_velocity = Camera.main.transform.forward * move_input.y + Camera.main.transform.right * move_input.x;
+            dash_velocity.y = 0f;
             is_dashing = true;
         }
     }
@@ -60,7 +61,9 @@ public class Movement : MonoBehaviour
     {
         //gets the move_input and velocity every frame for direction purposes
         move_input = gameInput.GetMovementVector();
-        move_velocity = move_input * speed;
+        //move_velocity = move_input * speed;
+        move_velocity = Camera.main.transform.forward * move_input.y + Camera.main.transform.right * move_input.x;
+        move_velocity.y = 0f;
 
         //if the player is dashing and the dash internal counter is >= 0 and <= dash duration then
         //it reduces the internal counter so it can reach 0 meaning the dash ended and it can stop instead of dashing infinitely lol
@@ -81,8 +84,7 @@ public class Movement : MonoBehaviour
         //checks if its dashing or not, if it is then applies the dash velocity to the rb.MovePosition, otherwise applies the move velocity instead.
         if (is_dashing)
         {
-            rb.MovePosition(rb.position + new Vector3(dash_velocity.x, 0, dash_velocity.y) * Time.fixedDeltaTime);
-            //rb.AddForce(new Vector3(dash_velocity.x, 0, dash_velocity.y) * dash_speed * Time.deltaTime);
+            rb.MovePosition(rb.position + dash_velocity * Time.fixedDeltaTime * dash_speed);
 
             //checks if the internal counter is 0 or below to stop the dash
             if (dash_duration_internal <= 0)
@@ -95,7 +97,8 @@ public class Movement : MonoBehaviour
         }
         else
         {
-            rb.MovePosition(rb.position + new Vector3(move_velocity.x, 0, move_velocity.y) * Time.fixedDeltaTime);
+            //rb.MovePosition(rb.position + new Vector3(move_velocity.x, 0, move_velocity.y) * Time.fixedDeltaTime * speed);
+            rb.MovePosition(rb.position + move_velocity * Time.fixedDeltaTime * speed);
         }
     }
 
