@@ -11,18 +11,6 @@ public class PlayerRotation : MonoBehaviour
     //get the gameinput script for input stuff
     [SerializeField] private GameInput gameInput;
 
-    public float sensitivity = 100.0f;
-    public float smoothing = 5.0f;
-
-    Vector2 mouseLook;
-    Vector2 smoothV;
-
-    private void Start()
-    {
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
-    }
-
     void Update()
     {
         if (Time.timeScale == 0)

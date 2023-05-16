@@ -17,6 +17,8 @@ public class PauseMenu : MonoBehaviour
         pauseMenu.SetActive(false);
         inventory.SetActive(false);
         gui.SetActive(true);
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     // Update is called once per frame
@@ -53,6 +55,8 @@ public class PauseMenu : MonoBehaviour
         gui.SetActive(false);
         Time.timeScale = 0f;
         isPaused = true;
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
     }
 
     public void ResumeGame()
@@ -61,6 +65,8 @@ public class PauseMenu : MonoBehaviour
         gui.SetActive(true);
         Time.timeScale = 1f;
         isPaused = false;
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     public void OpenInventory()
@@ -69,6 +75,8 @@ public class PauseMenu : MonoBehaviour
         gui.SetActive(false);
         Time.timeScale = 0f;
         isPaused = true;
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
     }
 
     public void CloseInventory()
@@ -77,6 +85,8 @@ public class PauseMenu : MonoBehaviour
         gui.SetActive(true);
         Time.timeScale = 1f;
         isPaused = false;
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     public void GoToMainMenu()
