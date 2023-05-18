@@ -11,7 +11,7 @@ public class PlayerRotation : MonoBehaviour
     //get the gameinput script for input stuff
     [SerializeField] private GameInput gameInput;
 
-    void Update()
+    void FixedUpdate()
     {
         if (Time.timeScale == 0)
         {
