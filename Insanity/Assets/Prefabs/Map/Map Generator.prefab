@@ -44,19 +44,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 328381b4e6b8bfe44ad67e0bbd61c4b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  size: {x: 2, y: 5}
+  size: {x: 5, y: 5}
   startPos: 0
   rooms:
   - room: {fileID: 1955063980803786608, guid: d7830640e1e70c54b928605c63976216, type: 3}
     minPosition: {x: 0, y: 0}
     maxPosition: {x: 0, y: 0}
     obligatory: 0
-  - room: {fileID: 1955063980803786608, guid: 9ea16318c51cb6e43b9379b7f97ead87, type: 3}
-    minPosition: {x: 1, y: 4}
-    maxPosition: {x: 1, y: 4}
-    obligatory: 1
-  - room: {fileID: 1955063980803786608, guid: e9106e4d2a03f474d8993bbe862ce9d4, type: 3}
-    minPosition: {x: 1, y: 4}
-    maxPosition: {x: 1, y: 4}
-    obligatory: 1
   offset: {x: 30, y: 30}
