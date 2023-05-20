@@ -37,7 +37,7 @@ public class GameInput : MonoBehaviour
 
     public Vector2 GetMouseVector()
     {
-        Vector2 inputVector = (controls.Player.Mouse.ReadValue<Vector2>());
+        Vector2 inputVector = controls.Player.Mouse.ReadValue<Vector2>();
         return inputVector;
     }
 
