@@ -8,6 +8,7 @@ public class EnemySpawner : MonoBehaviour
     public float radius;
     private bool AlreadyChecked = false;
 
+
     void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player") && !AlreadyChecked)
