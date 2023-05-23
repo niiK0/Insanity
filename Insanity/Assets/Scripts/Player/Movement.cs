@@ -77,6 +77,8 @@ public class Movement : MonoBehaviour
         {
             dash_timer += 1 * Time.deltaTime;
         }
+
+        SpeedControl();
     }
 
     void FixedUpdate()
@@ -84,7 +86,8 @@ public class Movement : MonoBehaviour
         //checks if its dashing or not, if it is then applies the dash velocity to the rb.MovePosition, otherwise applies the move velocity instead.
         if (is_dashing)
         {
-            rb.MovePosition(rb.position + dash_velocity * Time.fixedDeltaTime * dash_speed);
+            //rb.MovePosition(rb.position + dash_velocity * Time.fixedDeltaTime * dash_speed);
+            rb.AddForce(dash_velocity.normalized * dash_speed, ForceMode.Impulse);
 
             //checks if the internal counter is 0 or below to stop the dash
             if (dash_duration_internal <= 0)
@@ -98,7 +101,26 @@ public class Movement : MonoBehaviour
         else
         {
             //rb.MovePosition(rb.position + new Vector3(move_velocity.x, 0, move_velocity.y) * Time.fixedDeltaTime * speed);
-            rb.MovePosition(rb.position + move_velocity * Time.fixedDeltaTime * speed);
+            //rb.MovePosition(rb.position + move_velocity * Time.fixedDeltaTime * speed);
+            rb.AddForce(move_velocity.normalized * speed * 10f, ForceMode.Force);
+            //rb.velocity = move_velocity * speed;
+        }
+    }
+
+    void SpeedControl()
+    {
+        Vector3 flatVel = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
+        if(flatVel.magnitude > speed){
+            if (is_dashing)
+            {
+                Vector3 limitedVel = flatVel.normalized * dash_speed;
+                rb.velocity = new Vector3(limitedVel.x, 0f, limitedVel.z);
+            }
+            else
+            {
+                Vector3 limitedVel = flatVel.normalized * speed;
+                rb.velocity = new Vector3(limitedVel.x, rb.velocity.y, limitedVel.z);
+            }
         }
     }
 

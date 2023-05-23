@@ -1,73 +1,165 @@
 fileFormatVersion: 2
 guid: 0c053e006a01e754d8ce5c867bca5263
-timeCreated: 1465093979
-licenseType: Store
 ModelImporter:
-  serializedVersion: 19
-  fileIDToRecycleName:
-    100000: //RootNode
-    100002: desk_lamp_base
-    100004: desk_lamp_mid
-    100006: desk_lamp_selector
-    100008: desk_lamp_top
-    100010: desk_lamp_base2
-    100012: desk_lamp_mid2
-    100014: desk_lamp_mid3
-    100016: desk_lamp_selector2
-    100018: desk_lamp_top2
-    100020: transform2
-    100022: transform3
-    100024: transform4
-    100026: transform5
-    400000: //RootNode
-    400002: desk_lamp_base
-    400004: desk_lamp_mid
-    400006: desk_lamp_selector
-    400008: desk_lamp_top
-    400010: desk_lamp_base2
-    400012: desk_lamp_mid2
-    400014: desk_lamp_mid3
-    400016: desk_lamp_selector2
-    400018: desk_lamp_top2
-    400020: transform2
-    400022: transform3
-    400024: transform4
-    400026: transform5
-    2300000: desk_lamp_base
-    2300002: desk_lamp_mid
-    2300004: desk_lamp_selector
-    2300006: desk_lamp_top
-    2300008: desk_lamp_mid3
-    3300000: desk_lamp_base
-    3300002: desk_lamp_mid
-    3300004: desk_lamp_selector
-    3300006: desk_lamp_top
-    3300008: desk_lamp_mid3
-    4300000: desk_lamp_base
-    4300002: desk_lamp_selector
-    4300004: desk_lamp_mid
-    4300006: desk_lamp_top
-    4300008: desk_lamp_mid3
+  serializedVersion: 21300
+  internalIDToNameTable:
+  - first:
+      1: 100000
+    second: //RootNode
+  - first:
+      1: 100002
+    second: desk_lamp_base
+  - first:
+      1: 100004
+    second: desk_lamp_mid
+  - first:
+      1: 100006
+    second: desk_lamp_selector
+  - first:
+      1: 100008
+    second: desk_lamp_top
+  - first:
+      1: 100010
+    second: desk_lamp_base2
+  - first:
+      1: 100012
+    second: desk_lamp_mid2
+  - first:
+      1: 100014
+    second: desk_lamp_mid3
+  - first:
+      1: 100016
+    second: desk_lamp_selector2
+  - first:
+      1: 100018
+    second: desk_lamp_top2
+  - first:
+      1: 100020
+    second: transform2
+  - first:
+      1: 100022
+    second: transform3
+  - first:
+      1: 100024
+    second: transform4
+  - first:
+      1: 100026
+    second: transform5
+  - first:
+      4: 400000
+    second: //RootNode
+  - first:
+      4: 400002
+    second: desk_lamp_base
+  - first:
+      4: 400004
+    second: desk_lamp_mid
+  - first:
+      4: 400006
+    second: desk_lamp_selector
+  - first:
+      4: 400008
+    second: desk_lamp_top
+  - first:
+      4: 400010
+    second: desk_lamp_base2
+  - first:
+      4: 400012
+    second: desk_lamp_mid2
+  - first:
+      4: 400014
+    second: desk_lamp_mid3
+  - first:
+      4: 400016
+    second: desk_lamp_selector2
+  - first:
+      4: 400018
+    second: desk_lamp_top2
+  - first:
+      4: 400020
+    second: transform2
+  - first:
+      4: 400022
+    second: transform3
+  - first:
+      4: 400024
+    second: transform4
+  - first:
+      4: 400026
+    second: transform5
+  - first:
+      23: 2300000
+    second: desk_lamp_base
+  - first:
+      23: 2300002
+    second: desk_lamp_mid
+  - first:
+      23: 2300004
+    second: desk_lamp_selector
+  - first:
+      23: 2300006
+    second: desk_lamp_top
+  - first:
+      23: 2300008
+    second: desk_lamp_mid3
+  - first:
+      33: 3300000
+    second: desk_lamp_base
+  - first:
+      33: 3300002
+    second: desk_lamp_mid
+  - first:
+      33: 3300004
+    second: desk_lamp_selector
+  - first:
+      33: 3300006
+    second: desk_lamp_top
+  - first:
+      33: 3300008
+    second: desk_lamp_mid3
+  - first:
+      43: 4300000
+    second: desk_lamp_base
+  - first:
+      43: 4300002
+    second: desk_lamp_selector
+  - first:
+      43: 4300004
+    second: desk_lamp_mid
+  - first:
+      43: 4300006
+    second: desk_lamp_top
+  - first:
+      43: 4300008
+    second: desk_lamp_mid3
+  externalObjects: {}
   materials:
-    importMaterials: 1
+    materialImportMode: 1
     materialName: 0
     materialSearch: 1
+    materialLocation: 0
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
-    resampleRotations: 1
+    resampleCurves: 1
     optimizeGameObjects: 0
+    removeConstantScaleCurves: 0
     motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
     animationImportErrors: 
     animationImportWarnings: 
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
     animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
+    extraUserProperties: []
     clipAnimations: []
     isReadable: 1
   meshes:
@@ -75,25 +167,47 @@ ModelImporter:
     globalScale: 100
     meshCompression: 0
     addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importVisibility: 0
     importBlendShapes: 0
+    importCameras: 0
+    importLights: 0
+    nodeNameCollisionStrategy: 0
+    fileIdsGeneration: 1
     swapUVChannels: 0
-    generateSecondaryUV: 0
+    generateSecondaryUV: 1
     useFileUnits: 1
-    optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    meshOptimizationFlags: -1
+    indexFormat: 1
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 0
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
     secondaryUVPackMargin: 4
     useFileScale: 1
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
     tangentImportMode: 3
+    normalCalculationMode: 0
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 1
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
   importAnimation: 0
-  copyAvatar: 0
   humanDescription:
+    serializedVersion: 3
     human: []
     skeleton: []
     armTwist: 0.5
@@ -103,11 +217,18 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
+    globalScale: 100
     rootMotionBoneName: 
     hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 0
   lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 0
   humanoidOversampling: 1
+  avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 0
+  remapMaterialsIfMaterialImportModeIsNone: 1
   additionalBone: 0
   userData: 
   assetBundleName: 
