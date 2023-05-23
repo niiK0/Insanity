@@ -6,17 +6,23 @@ using UnityEngine.SceneManagement;
 
 public class UpDoor : MonoBehaviour
 {
-    [SerializeField] GameObject Player;
-    
+    private GameObject Player;
+
     public bool enemyAlive;
 
     //Distancia que o jogador se move ao tocar numa porta
-    static float MoveDistance = 30f;
+    static float MoveDistance = 10f;
+
+
+    private void Start()
+    {
+        Player = GameObject.FindGameObjectWithTag("Player");
+    }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     void OnTriggerEnter(Collider other)
@@ -40,7 +46,7 @@ public class UpDoor : MonoBehaviour
         //Posiçao para qual o jogador vai ser movido apos o teleport
         Vector3 TargetPosition = initialPosition + new Vector3(0f, 0f, MoveDistance);
 
-        Debug.Log("Cima");
+        //Faz com que o jogador passe para a outra sala
         if (other.CompareTag("Player") && !enemyAlive)
         {
             Player.transform.position = TargetPosition;

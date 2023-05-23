@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 440834}
   - component: {fileID: 3395544}
   - component: {fileID: 2304662}
-  - component: {fileID: 7485640493545452166}
   - component: {fileID: 6535906}
   m_Layer: 0
   m_Name: door_01
@@ -86,18 +85,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &7485640493545452166
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 186586}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc57e880f5f772e4cab82d690b8cb6d9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!65 &6535906
 BoxCollider:
   m_ObjectHideFlags: 0
