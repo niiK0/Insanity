@@ -1,0 +1,11 @@
+Model Information:
+* title:	Low poly emergency exit sign
+* source:	https://sketchfab.com/3d-models/low-poly-emergency-exit-sign-c722867b5bf5457daf598bb3bc68dd24
+* author:	Mckai (https://sketchfab.com/Mckai)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Low poly emergency exit sign" (https://sketchfab.com/3d-models/low-poly-emergency-exit-sign-c722867b5bf5457daf598bb3bc68dd24) by Mckai (https://sketchfab.com/Mckai) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
