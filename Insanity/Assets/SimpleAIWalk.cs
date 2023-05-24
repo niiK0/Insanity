@@ -14,6 +14,7 @@ public class SimpleAIWalk : MonoBehaviour
         if (agent.isOnNavMesh)
         {
             agent.SetDestination(target.position);
+            transform.LookAt(target);
         }
     }
 }
