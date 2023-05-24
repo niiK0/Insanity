@@ -23,7 +23,7 @@ public class DownDoor : MonoBehaviour
 
     }
 
-    void OnTriggerEnter(Collider other)
+    public void OnTriggerEnter(Collider other)
     {
         //Parte da função que verifica se o inimigo ainda esta vivio de modo a poder seguir com o jogo
         GameObject enemy = GameObject.FindGameObjectWithTag("Enemy");
