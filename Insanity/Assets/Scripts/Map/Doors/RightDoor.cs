@@ -14,7 +14,7 @@ public class RightDoor : MonoBehaviour
     static float MoveDistance = 10f;
 
 
-    private void Start()
+    private void Awake()
     {
         Player = GameObject.FindGameObjectWithTag("Player");
     }
@@ -47,7 +47,9 @@ public class RightDoor : MonoBehaviour
         Vector3 TargetPosition = initialPosition + new Vector3(MoveDistance, 0f, 0f);
 
         //Faz com que o jogador passe para a outra sala
-        if (other.CompareTag("Player") && !enemyAlive)
+        Debug.Log("Chegou A direita");
+        Player.transform.position = TargetPosition;
+        if (other.CompareTag("Player"))
         {
             Player.transform.position = TargetPosition;
         }

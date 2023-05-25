@@ -12,11 +12,11 @@ public class LeftDoor : MonoBehaviour
     //Distancia que o jogador se move ao tocar numa porta
     static float MoveDistance = -10f;
 
-
-    private void Start()
+    private void Awake()
     {
         Player = GameObject.FindGameObjectWithTag("Player");
     }
+   
 
     // Update is called once per frame
     void Update()
@@ -46,7 +46,9 @@ public class LeftDoor : MonoBehaviour
         Vector3 TargetPosition = initialPosition + new Vector3(MoveDistance, 0f, 0f);
 
         //Faz com que o jogador passe para a outra sala
-        if (other.CompareTag("Player") && !enemyAlive)
+        Debug.Log("Chegou A esquerda");
+        Player.transform.position = TargetPosition;
+        if (other.CompareTag("Player"))
         {
             Player.transform.position = TargetPosition;
         }

@@ -14,7 +14,7 @@ public class UpDoor : MonoBehaviour
     static float MoveDistance = 10f;
 
 
-    private void Start()
+    private void Awake()
     {
         Player = GameObject.FindGameObjectWithTag("Player");
     }
@@ -47,7 +47,9 @@ public class UpDoor : MonoBehaviour
         Vector3 TargetPosition = initialPosition + new Vector3(0f, 0f, MoveDistance);
 
         //Faz com que o jogador passe para a outra sala
-        if (other.CompareTag("Player") && !enemyAlive)
+        Debug.Log("Chegou A cima");
+        Player.transform.position = TargetPosition;
+        if (other.CompareTag("Player"))
         {
             Player.transform.position = TargetPosition;
         }
