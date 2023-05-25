@@ -1,20 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 using StatSystem;
+using UnityEngine.Animations;
 
 public class EnemyMovement : MonoBehaviour
 {
-    private Rigidbody rb;
+    //private Rigidbody rb;
 
     private float speed => m_StatController.stats["Speed"].value;
 
-    private bool isMoving = false;
-    private float movementTimer = 0;
-    private float timeStopped = 0.5f;
-    private float timeMoving = 1f;
+    [SerializeField] private NavMeshAgent agent;
 
-    private Vector3 currDirection;
+    private Transform player;
+    public bool isMoving = false;
+    [SerializeField] private Animator anim;
+
 
     protected StatController m_StatController;
 
@@ -25,46 +27,31 @@ public class EnemyMovement : MonoBehaviour
 
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
+        //rb = GetComponent<Rigidbody>();
+        player = GameObject.FindGameObjectWithTag("Player").transform;
+        agent.speed = speed;
     }
 
-    void Update()
+    private void Update()
     {
-        TimerUpdate();
-
-        if (isMoving)
+        if(player == null)
         {
-            MoveEnemy();
+            player = GameObject.FindGameObjectWithTag("Player").transform;
         }
-    }
-
-    private void TimerUpdate()
-    {
-        movementTimer += Time.deltaTime;
-
-        if (isMoving == true && movementTimer >= timeMoving)
+        else
         {
-            isMoving = false;
-            movementTimer = 0;
+            agent.SetDestination(player.position);
         }
-        
-        if (isMoving == false && movementTimer >= timeStopped)
+
+        if(agent.velocity != Vector3.zero)
         {
             isMoving = true;
-            movementTimer = 0;
-            currDirection = RandomDirection();
+            anim.SetBool("isMoving", true);
         }
-    }
-
-    private Vector3 RandomDirection()
-    {
-        Vector3 randomVec = new Vector3(Random.Range(-1, 2), 0, Random.Range(-1, 2));
-        return randomVec;
-    }
-
-    private void MoveEnemy()
-    {
-        Vector3 dir = currDirection.normalized;
-        rb.velocity = dir * speed;
+        else
+        {
+            isMoving = false;
+            anim.SetBool("isMoving", false);
+        }
     }
 }

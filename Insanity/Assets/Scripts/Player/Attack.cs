@@ -38,8 +38,6 @@ public class Attack : MonoBehaviour
 
     void StartCombo()
     {
-        //anim.enabled = true;
-
         if (canHitNext)
         {
             noOfClicks++;
@@ -87,7 +85,5 @@ public class Attack : MonoBehaviour
             noOfClicks = 0;
             isAttacking = false;
         }
-
-        //anim.enabled = false;
     }
 }

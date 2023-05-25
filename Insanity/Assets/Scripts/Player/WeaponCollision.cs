@@ -10,7 +10,7 @@ public class WeaponCollision : MonoBehaviour
     {
         if (other.CompareTag("Enemy") || other.CompareTag("Boss"))
         {
-            other.GetComponent<SimpleEnemy>().TakeDamage(player);
+            other.GetComponent<EnemyHealth>().TakeDamage(player);
         }
     }
 }

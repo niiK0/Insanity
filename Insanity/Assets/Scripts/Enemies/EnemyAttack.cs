@@ -1,41 +1,46 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
+using UnityEngine.Animations;
 
 public class EnemyAttack : MonoBehaviour
 {
-    public bool isAttacking = false;
-
-    [SerializeField] GameObject projectilePrefab;
-    [SerializeField] Transform shootPosition;
-
-    private float attackInternalCw;
-    [SerializeField] float attackCw;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        attackInternalCw = attackCw;
-    }
+    [SerializeField] private Animator anim;
+    [SerializeField] private bool canAttack = false;
+    [SerializeField] private GameObject handCollider;
 
     // Update is called once per frame
     void Update()
     {
-        if (attackInternalCw <= 0)
+        if (canAttack)
         {
-            attackInternalCw = attackCw;
             Attack();
         }
 
-        if(attackInternalCw >= 0)
+        if (GetComponent<EnemyMovement>().isMoving == false)
         {
-            attackInternalCw += -1 * Time.deltaTime;
+            canAttack = true;
+        }
+        else
+        {
+            canAttack = false;
         }
     }
 
     void Attack()
     {
-        GameObject projectile = Instantiate(projectilePrefab, shootPosition.position, Quaternion.identity);
-        projectile.GetComponent<EnemyBullet>().enemyWhoShot = gameObject;
+        anim.SetTrigger("attack");
+    }
+
+    
+    public void DisableEnemyHandCollider()
+    {
+        handCollider.GetComponent<Collider>().enabled = false;
+    }
+
+    public void EnableEnemyHandCollider()
+    {
+        handCollider.GetComponent<Collider>().enabled = true;
     }
 }

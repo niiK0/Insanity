@@ -1528,7 +1528,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 527dca6376628a64a80a5f4009b20a0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 3315010846937372388, guid: 003660106cdbb144c8c5cbbdae785c26, type: 3}
   enemyAlive: 0
 --- !u!23 &358850641233815196 stripped
 MeshRenderer:
@@ -1734,7 +1733,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 267ec167f38cf6241afb62a911f1ea72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 3315010846937372388, guid: 003660106cdbb144c8c5cbbdae785c26, type: 3}
   enemyAlive: 0
 --- !u!23 &1067673505899275614 stripped
 MeshRenderer:
@@ -1844,7 +1842,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9db68f957a1a784db0bfee3aa1c8c6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 3315010846937372388, guid: 003660106cdbb144c8c5cbbdae785c26, type: 3}
   enemyAlive: 0
 --- !u!1001 &2449911857041632171
 PrefabInstance:
@@ -2865,7 +2862,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2163675d9fba6f428e416aaa747a866, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 3315010846937372388, guid: 003660106cdbb144c8c5cbbdae785c26, type: 3}
   enemyAlive: 0
 --- !u!1001 &4551013504013566261
 PrefabInstance:
@@ -4308,7 +4304,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5343041370289165539, guid: 60c7fd7986debbd459aae017425976c3, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 7.1499825
+      value: -5.3
       objectReference: {fileID: 0}
     - target: {fileID: 5343041370289165539, guid: 60c7fd7986debbd459aae017425976c3, type: 3}
       propertyPath: m_LocalRotation.w
