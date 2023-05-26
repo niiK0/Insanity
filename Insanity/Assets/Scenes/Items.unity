@@ -6734,6 +6734,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1535453860}
     - target: {fileID: 2224596798878041221, guid: 003660106cdbb144c8c5cbbdae785c26, type: 3}
+      propertyPath: mouseSensitivity
+      value: 35
+      objectReference: {fileID: 0}
+    - target: {fileID: 2224596798878041221, guid: 003660106cdbb144c8c5cbbdae785c26, type: 3}
       propertyPath: cameraHolderTransform
       value: 
       objectReference: {fileID: 1892505651}

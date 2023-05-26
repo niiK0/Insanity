@@ -8,26 +8,32 @@ public class PlayerRotation : MonoBehaviour
     [SerializeField] private Transform cameraHolderTransform;
     [SerializeField] public Transform weaponTransform;
 
-    public float mouseSensitivity = 100f;
+    public float mouseSensitivity = 35f;
     float xRotation = 0f;
+    private Vector2 mouseDelta;
 
     //get the gameinput script for input stuff
     [SerializeField] private GameInput gameInput;
 
-    void Update()
+    void LateUpdate()
     {
         if (Time.timeScale == 0)
         {
             return;
         }
 
-        Vector2 mouseDelta = gameInput.GetMouseVector() * Time.deltaTime * mouseSensitivity;
+        mouseDelta = gameInput.GetMouseVector() * Time.deltaTime * mouseSensitivity;
 
         xRotation -= mouseDelta.y;
         xRotation = Mathf.Clamp(xRotation, -90f, 90f);
 
         cameraHolderTransform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
         transform.Rotate(Vector3.up * mouseDelta.x);
-        //weaponTransform.localRotation = Quaternion.Euler(new Vector3(0, Camera.main.transform.rotation.eulerAngles.y, 0));
     }
+
+    //private void FixedUpdate()
+    //{
+    //    cameraHolderTransform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
+    //    transform.Rotate(Vector3.up * mouseDelta.x);
+    //}
 }

@@ -29,8 +29,6 @@ public class Movement : MonoBehaviour
     //get the gameinput script for input stuff
     [SerializeField] private GameInput gameInput;
 
-    //[SerializeField] GameObject dashEffect;
-
     //get the stat controller for basically everything related to stats
     protected StatController m_StatController;
     protected virtual void Awake()
@@ -86,7 +84,6 @@ public class Movement : MonoBehaviour
         //checks if its dashing or not, if it is then applies the dash velocity to the rb.MovePosition, otherwise applies the move velocity instead.
         if (is_dashing)
         {
-            //rb.MovePosition(rb.position + dash_velocity * Time.fixedDeltaTime * dash_speed);
             rb.AddForce(dash_velocity.normalized * dash_speed, ForceMode.Impulse);
 
             //checks if the internal counter is 0 or below to stop the dash
@@ -100,10 +97,7 @@ public class Movement : MonoBehaviour
         }
         else
         {
-            //rb.MovePosition(rb.position + new Vector3(move_velocity.x, 0, move_velocity.y) * Time.fixedDeltaTime * speed);
-            //rb.MovePosition(rb.position + move_velocity * Time.fixedDeltaTime * speed);
             rb.AddForce(move_velocity.normalized * speed * 10f, ForceMode.Force);
-            //rb.velocity = move_velocity * speed;
         }
     }
 
@@ -123,12 +117,4 @@ public class Movement : MonoBehaviour
             }
         }
     }
-
-    //IEnumerator dashEffectCall()
-    //{
-    //    GameObject dashEffectI = Instantiate(dashEffect, new Vector3(transform.position.x, transform.position.y, 0), Quaternion.identity);
-    //    //FindObjectOfType<AudioManager>().PlaySound("Dash");
-    //    yield return new WaitForSeconds(1f);
-    //    Destroy(dashEffectI);
-    //}
 }
