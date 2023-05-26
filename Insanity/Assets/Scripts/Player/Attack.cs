@@ -26,14 +26,14 @@ public class Attack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isAttacking)
-        {
-            weapCollider.enabled = true;
-        }
-        else
-        {
-            weapCollider.enabled = false;
-        }
+        //if (isAttacking)
+        //{
+        //    weapCollider.enabled = true;
+        //}
+        //else
+        //{
+        //    weapCollider.enabled = false;
+        //}
     }
 
     void StartCombo()
@@ -85,5 +85,16 @@ public class Attack : MonoBehaviour
             noOfClicks = 0;
             isAttacking = false;
         }
+
+    }
+
+    private void DisablePlayerWeaponCollider()
+    {
+        weapCollider.GetComponent<Collider>().enabled = false;
+    }
+
+    private void EnablePlayerWeaponCollider()
+    {
+        weapCollider.GetComponent<Collider>().enabled = true;
     }
 }

@@ -5,11 +5,13 @@ using TMPro;
 using StatSystem;
 using SanitySystem;
 using UnityEngine.SceneManagement;
+using UnityEngine.Animations;
 
 public class EnemyHealth : MonoBehaviour
 {
     public Transform player;
     public TMP_Text healthText;
+    [SerializeField] private Animator anim;
 
     private float health => (m_StatController.stats["Health"] as Attribute).value;
 
@@ -51,10 +53,23 @@ public class EnemyHealth : MonoBehaviour
 
         if (health <= 0)
         {
-            Destroy(gameObject);
+            anim.SetTrigger("die");
+            EnemyDie();
             player.gameObject.GetComponent<SanityStatsScale>().SanityCalcs();
         }
 
 
+    }
+
+    private void EnemyDie()
+    {
+        //anim.applyRootMotion = true;
+        healthText.enabled = false;
+        GetComponent<EnemyMovement>().enabled = false;
+    }
+
+    private void DestroyEnemyOnDeath()
+    {
+        Destroy(gameObject);
     }
 }
