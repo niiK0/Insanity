@@ -34,7 +34,7 @@ public class SimpleHealth : MonoBehaviour
             type = ModifierOperationType.Additive
         });
 
-        GetComponent<SanityStatsScale>().healthText.text = health.ToString();
+        GetComponent<SanityStatsScale>().UpdateHealth();
 
         if (health <= 0)
         {

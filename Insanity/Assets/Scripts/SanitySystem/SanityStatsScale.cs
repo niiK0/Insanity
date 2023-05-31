@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using Attribute = StatSystem.Attribute;
 using SanitySystem;
 using StatSystem;
@@ -34,7 +35,7 @@ public class SanityStatsScale : MonoBehaviour
     public TMP_Text strengthText;
     public TMP_Text dexterityText;
     public TMP_Text speedText;
-    public TMP_Text healthText;
+    public Slider healthBar;
     public TMP_Text sanityText;
 
     //bool for sanitymode and get text of the sanity mode
@@ -111,8 +112,14 @@ public class SanityStatsScale : MonoBehaviour
         strengthText.text = m_StatController.stats[s_Strength].value.ToString();
         dexterityText.text = m_StatController.stats[s_Dexterity].value.ToString();
         speedText.text = m_StatController.stats[s_Speed].value.ToString();
-        healthText.text = m_StatController.stats[s_Health].value.ToString();
+        //healthText.text = m_StatController.stats[s_Health].value.ToString();
+        healthBar.value = Health / maxHealth;
         sanityText.text = sanity.sanity.ToString() + "%";
+    }
+
+    public void UpdateHealth()
+    {
+        healthBar.value = Health / maxHealth;
     }
 
     //updates the sanity mode text
