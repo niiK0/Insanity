@@ -21,8 +21,9 @@ public class SanityStatsScale : MonoBehaviour
     private const string s_DashRange = "DashRange";
 
     //create public int variables for each stat from the stat controller
-    public int Health => (int)(m_StatController.stats[s_Health] as Attribute).currentValue;
-    public int maxHealth => (int)m_StatController.stats[s_Health].value;
+    public int maxHealth => (int)(m_StatController.stats[s_Health] as Attribute).currentValue;
+    public int Health => (int)m_StatController.stats[s_Health].value;
+    //public int maxHealth => (int)m_StatController.stats[s_Health].baseValue;
     public int Strength => (int)m_StatController.stats[s_Strength].value;
     public int Dexterity => (int)m_StatController.stats[s_Dexterity].value;
     public int Speed => (int)m_StatController.stats[s_Speed].value;
@@ -32,15 +33,15 @@ public class SanityStatsScale : MonoBehaviour
     public int DashRange => (int)m_StatController.stats[s_DashRange].value;
 
     //get the UI text for each stat
-    public TMP_Text strengthText;
-    public TMP_Text dexterityText;
-    public TMP_Text speedText;
+    public TextMeshProUGUI strengthText;
+    public TextMeshProUGUI dexterityText;
+    public TextMeshProUGUI speedText;
     public Slider healthBar;
-    public TMP_Text sanityText;
+    public TextMeshProUGUI sanityText;
 
     //bool for sanitymode and get text of the sanity mode
     private bool sanityMode = true;
-    public TMP_Text sanityModeText;
+    public TextMeshProUGUI sanityModeText;
 
     //create a sanity object (makes this script the main sanity handler)
     public Sanity sanity = new Sanity();
@@ -62,6 +63,8 @@ public class SanityStatsScale : MonoBehaviour
         sanityChanged += EditModifier;
         //default the sanity as 50 since thats where we want it
         sanity.sanity = 50;
+
+        UpdateHealth();
 
         //add a stat modifier of type sanity to all of the stats we need, that way we just edit that one modifier only
         m_StatController.stats[s_Health].AddModifier(
@@ -113,13 +116,22 @@ public class SanityStatsScale : MonoBehaviour
         dexterityText.text = m_StatController.stats[s_Dexterity].value.ToString();
         speedText.text = m_StatController.stats[s_Speed].value.ToString();
         //healthText.text = m_StatController.stats[s_Health].value.ToString();
-        healthBar.value = Health / maxHealth;
-        sanityText.text = sanity.sanity.ToString() + "%";
+        healthBar.value = Mathf.Clamp01(Health / Mathf.Max(maxHealth, float.Epsilon));
+        sanityText.text = sanity.sanity.ToString();
+        if(sanity.sanity > 50)
+            sanityText.color = new Color32(255, 253, 0, 255);
+        else if(sanity.sanity < 50)
+            sanityText.color = new Color32(255, 23, 25, 255);
+        else
+            sanityText.color = new Color32(255, 255, 255, 255);
     }
 
     public void UpdateHealth()
     {
-        healthBar.value = Health / maxHealth;
+        //Debug.Log("Max HP:" + maxHealth);
+        //Debug.Log("Current HP:" + Health);
+        //Debug.Log("Clamped VAL:" + Mathf.Clamp01(Health / Mathf.Max(maxHealth, float.Epsilon)));
+        healthBar.value = Mathf.Clamp01(Health / Mathf.Max(maxHealth, float.Epsilon));
     }
 
     //updates the sanity mode text
@@ -127,10 +139,12 @@ public class SanityStatsScale : MonoBehaviour
     {
         if (sanityMode)
         {
-            sanityModeText.text = "Sane"; 
+            sanityModeText.text = "Sane";
+            sanityModeText.color = new Color32(255, 253, 0, 255);
         }else if (!sanityMode)
         {
             sanityModeText.text = "Insane";
+            sanityModeText.color = new Color32(255, 23, 25, 255);
         }
         
     }
