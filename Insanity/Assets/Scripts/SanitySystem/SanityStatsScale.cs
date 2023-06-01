@@ -7,6 +7,8 @@ using SanitySystem;
 using StatSystem;
 using System;
 using TMPro;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
 
 public class SanityStatsScale : MonoBehaviour
 {
@@ -48,6 +50,10 @@ public class SanityStatsScale : MonoBehaviour
 
     //event for whenever the sanity was changed, probably important for a bunch of stuff later
     public event Action sanityChanged;
+
+    public Volume postProcessVolume;
+    public VolumeProfile insaneVolume;
+    public VolumeProfile saneVolume;
 
     //get the stat controller for basically everything related to stats
     protected StatController m_StatController;
@@ -141,10 +147,12 @@ public class SanityStatsScale : MonoBehaviour
         {
             sanityModeText.text = "Sane";
             sanityModeText.color = new Color32(255, 253, 0, 255);
+            postProcessVolume.profile = saneVolume;
         }else if (!sanityMode)
         {
             sanityModeText.text = "Insane";
             sanityModeText.color = new Color32(255, 23, 25, 255);
+            postProcessVolume.profile = insaneVolume;
         }
         
     }

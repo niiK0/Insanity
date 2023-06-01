@@ -34,7 +34,9 @@ public class EnemyMovement : MonoBehaviour
 
     private void Update()
     {
-        if(player == null)
+        anim.SetFloat("speed", agent.speed / 10);
+
+        if (player == null)
         {
             player = GameObject.FindGameObjectWithTag("Player").transform;
         }

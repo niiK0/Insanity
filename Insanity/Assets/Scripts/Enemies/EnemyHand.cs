@@ -18,6 +18,7 @@ public class EnemyHand : MonoBehaviour
         if (other.gameObject.tag.Equals("Player"))
         {
             player.gameObject.GetComponent<SimpleHealth>().TakeDamage(enemyWhoShot);
+            Debug.Log("i hit hehe");
         }
     }
 }

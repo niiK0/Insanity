@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 using StatSystem;
 using SanitySystem;
@@ -10,10 +11,11 @@ using UnityEngine.Animations;
 public class EnemyHealth : MonoBehaviour
 {
     public Transform player;
-    public TMP_Text healthText;
+    public Slider healthSlider;
     [SerializeField] private Animator anim;
 
     private float health => (m_StatController.stats["Health"] as Attribute).value;
+    private float maxHealth = 0f;
 
     protected StatController m_StatController;
 
@@ -24,15 +26,15 @@ public class EnemyHealth : MonoBehaviour
 
     private void Start()
     {
-        healthText.text = health.ToString();
+        healthSlider.value = Mathf.Clamp01(health / maxHealth);
         player = GameObject.FindWithTag("Player").transform;
+        maxHealth = m_StatController.stats["Health"].baseValue;
     }
 
     // Update is called once per frame
     void Update()
     {
-
-        //transform.LookAt(player.transform, Vector3.up);
+        healthSlider.transform.LookAt(player.transform);
     }
 
     public void TakeDamage(GameObject source)
@@ -44,7 +46,7 @@ public class EnemyHealth : MonoBehaviour
             type = ModifierOperationType.Additive
         });
 
-        healthText.text = health.ToString();
+        healthSlider.value = Mathf.Clamp01(health / maxHealth);
 
         if (health <= 0 && gameObject.tag.Equals("Boss"))
         {
@@ -53,6 +55,7 @@ public class EnemyHealth : MonoBehaviour
 
         if (health <= 0)
         {
+            GetComponent<Collider>().enabled = false;
             anim.SetTrigger("die");
             EnemyDie();
             player.gameObject.GetComponent<SanityStatsScale>().SanityCalcs();
@@ -64,7 +67,7 @@ public class EnemyHealth : MonoBehaviour
     private void EnemyDie()
     {
         //anim.applyRootMotion = true;
-        healthText.enabled = false;
+        healthSlider.gameObject.SetActive(false);
         GetComponent<EnemyMovement>().enabled = false;
     }
 
