@@ -7,7 +7,7 @@ public class ItemSpawner : MonoBehaviour
     private int RandItem = 0;
     public GameObject[] Items;
 
-    private bool RoomCleared = false;
+    public bool RoomCleared = false;
 
     //Spawner variables
     public float radius;
@@ -25,6 +25,7 @@ public class ItemSpawner : MonoBehaviour
         {
             RandItem = Random.Range(0, Items.Length);
             Instantiate(Items[RandItem], this.transform.position, Quaternion.identity);
+            RoomCleared= false;
         }
     }
 }
