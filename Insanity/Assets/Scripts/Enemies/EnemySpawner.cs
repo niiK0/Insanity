@@ -11,8 +11,10 @@ public class EnemySpawner : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player") && !AlreadyChecked)
+        if (other.CompareTag("Player"))
         {
+
+            Debug.Log("Ola");
             // Spawn a new enemy
             Vector3 randomPosition = transform.position + Random.insideUnitSphere * radius;
             Instantiate(enemyPrefab, randomPosition, Quaternion.identity);
