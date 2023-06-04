@@ -591,7 +591,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ad26fe5f17420c42b97f5ff0b82efec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 5171671983485401690, guid: 205378f234a52de4fb92f6acbb614bb8, type: 3}
+  enemyPrefab: {fileID: 4748769828830700506, guid: fde5e8b2cc9e250449bf0ee17dbff9b0, type: 3}
   radius: 5
 --- !u!65 &2666092715311641437
 BoxCollider:

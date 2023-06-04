@@ -6,21 +6,21 @@ public class EnemySpawner : MonoBehaviour
 {
     public GameObject enemyPrefab;
     public float radius;
-    private bool AlreadyChecked = false;
+    private bool alreadyChecked = false;
 
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && !alreadyChecked)
         {
 
-            Debug.Log("Ola");
+           
             // Spawn a new enemy
             Vector3 randomPosition = transform.position + Random.insideUnitSphere * radius;
             Instantiate(enemyPrefab, randomPosition, Quaternion.identity);
 
             //Already checked stops mobs from spawning again
-            AlreadyChecked= true;
+            alreadyChecked= true;
         }
     }
 }
