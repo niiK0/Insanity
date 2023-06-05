@@ -70,13 +70,11 @@ public class ItemStuff : MonoBehaviour
         }
     }
 }
-
-[Serializable]
-public struct Item{
-    public string name;
-    public string desc;
-    public Sprite icon; 
-    public ModifierOperationType type;
-    public int[] value;
-    public string[] statName;
-}
+//public struct Item{
+//    public string name;
+//    public string desc;
+//    public Sprite icon; 
+//    public ModifierOperationType type;
+//    public int[] value;
+//    public string[] statName;
+//}

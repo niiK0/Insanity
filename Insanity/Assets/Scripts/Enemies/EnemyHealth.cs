@@ -13,7 +13,8 @@ public class EnemyHealth : MonoBehaviour
     public Transform player;
     public Slider healthSlider;
     [SerializeField] private Animator anim;
-
+    [SerializeField] GameObject statBuffItem;
+ 
     private float health => (m_StatController.stats["Health"] as Attribute).value;
     private float maxHealth = 0f;
 
@@ -67,6 +68,9 @@ public class EnemyHealth : MonoBehaviour
     private void EnemyDie()
     {
         //anim.applyRootMotion = true;
+        //spawn item
+        Instantiate(statBuffItem, new Vector3(transform.position.x, transform.position.y + 1f, transform.position.z), Quaternion.identity);
+
         healthSlider.gameObject.SetActive(false);
         GetComponent<EnemyMovement>().enabled = false;
     }

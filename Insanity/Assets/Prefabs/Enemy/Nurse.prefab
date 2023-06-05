@@ -1725,6 +1725,7 @@ MonoBehaviour:
   player: {fileID: 0}
   healthSlider: {fileID: 8462811523275957952}
   anim: {fileID: 2039277993490539290}
+  statBuffItem: {fileID: 8915738225110230790, guid: 01d0d8cde5c3d21438282986c686e88b, type: 3}
 --- !u!136 &869695256677656105
 CapsuleCollider:
   m_ObjectHideFlags: 0
