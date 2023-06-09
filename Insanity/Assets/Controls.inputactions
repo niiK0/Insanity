@@ -15,6 +15,33 @@
                     "initialStateCheck": false
                 },
                 {
+                    "name": "SanityPill",
+                    "type": "Button",
+                    "id": "37f94555-7c3f-4f6f-bf34-89a4bd945e97",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "InsanityPill",
+                    "type": "Button",
+                    "id": "bd4cc112-ca70-4891-8380-00421bbd386f",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Food",
+                    "type": "Button",
+                    "id": "ca5114c4-2ebf-4a59-9297-c6aa5ebea54b",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "Movement",
                     "type": "Value",
                     "id": "0aebd2a5-fc0e-4745-84f8-03ca16c5c1bb",
@@ -128,6 +155,39 @@
                     "processors": "",
                     "groups": "",
                     "action": "Mouse",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "36956ade-0361-45b2-928a-a0c461e3c959",
+                    "path": "<Keyboard>/f",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SanityPill",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "98af9e6d-6db3-4a99-ad06-0d223c9e1b25",
+                    "path": "<Keyboard>/g",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "InsanityPill",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ec59f6f1-eada-440b-9df6-d37bf4ec5b8e",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Food",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

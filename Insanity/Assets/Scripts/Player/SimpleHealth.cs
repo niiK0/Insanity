@@ -15,14 +15,16 @@ public class SimpleHealth : MonoBehaviour
         m_StatController = GetComponent<StatController>();
     }
 
-    // Start is called before the first frame update
-    void Start()
+    public void TakeFood(int amount)
     {
-    }
+        m_StatController.stats["Health"].AddModifier(new StatModifier
+        {
+            source = this,
+            magnitude = amount,
+            type = ModifierOperationType.Additive
+        });
 
-    // Update is called once per frame
-    void Update()
-    {
+        GetComponent<SanityStatsScale>().UpdateHealth();
     }
 
     public void TakeDamage(GameObject source)

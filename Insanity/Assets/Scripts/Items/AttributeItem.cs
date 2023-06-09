@@ -6,7 +6,7 @@ public class AttributeItem : MonoBehaviour
 {
     private Item item;
     private string[] statStrings = {
-        "Health",
+        "Dexterity",
         "Strength",
         "Speed"
     };
@@ -27,7 +27,7 @@ public class AttributeItem : MonoBehaviour
 
     private void GenerateNewItem()
     {
-        int randomIndex = Random.Range(0, statStrings.Length - 1);
+        int randomIndex = Random.Range(0, statStrings.Length);
         string itemStatName = statStrings[randomIndex];
         Sprite icon = icons[randomIndex];
         int[] values = { 1 };
@@ -39,7 +39,8 @@ public class AttributeItem : MonoBehaviour
             icon,
             StatSystem.ModifierOperationType.Additive,
             values,
-            statNames
+            statNames,
+            1
         );
     }
 }

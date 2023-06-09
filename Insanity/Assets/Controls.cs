@@ -37,6 +37,33 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
+                    ""name"": ""SanityPill"",
+                    ""type"": ""Button"",
+                    ""id"": ""37f94555-7c3f-4f6f-bf34-89a4bd945e97"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""InsanityPill"",
+                    ""type"": ""Button"",
+                    ""id"": ""bd4cc112-ca70-4891-8380-00421bbd386f"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Food"",
+                    ""type"": ""Button"",
+                    ""id"": ""ca5114c4-2ebf-4a59-9297-c6aa5ebea54b"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
                     ""name"": ""Movement"",
                     ""type"": ""Value"",
                     ""id"": ""0aebd2a5-fc0e-4745-84f8-03ca16c5c1bb"",
@@ -152,6 +179,39 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                     ""action"": ""Mouse"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""36956ade-0361-45b2-928a-a0c461e3c959"",
+                    ""path"": ""<Keyboard>/f"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SanityPill"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""98af9e6d-6db3-4a99-ad06-0d223c9e1b25"",
+                    ""path"": ""<Keyboard>/g"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""InsanityPill"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ec59f6f1-eada-440b-9df6-d37bf4ec5b8e"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Food"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -161,6 +221,9 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         // Player
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_Dash = m_Player.FindAction("Dash", throwIfNotFound: true);
+        m_Player_SanityPill = m_Player.FindAction("SanityPill", throwIfNotFound: true);
+        m_Player_InsanityPill = m_Player.FindAction("InsanityPill", throwIfNotFound: true);
+        m_Player_Food = m_Player.FindAction("Food", throwIfNotFound: true);
         m_Player_Movement = m_Player.FindAction("Movement", throwIfNotFound: true);
         m_Player_Attack = m_Player.FindAction("Attack", throwIfNotFound: true);
         m_Player_Mouse = m_Player.FindAction("Mouse", throwIfNotFound: true);
@@ -224,6 +287,9 @@ public partial class @Controls : IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Player;
     private IPlayerActions m_PlayerActionsCallbackInterface;
     private readonly InputAction m_Player_Dash;
+    private readonly InputAction m_Player_SanityPill;
+    private readonly InputAction m_Player_InsanityPill;
+    private readonly InputAction m_Player_Food;
     private readonly InputAction m_Player_Movement;
     private readonly InputAction m_Player_Attack;
     private readonly InputAction m_Player_Mouse;
@@ -232,6 +298,9 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         private @Controls m_Wrapper;
         public PlayerActions(@Controls wrapper) { m_Wrapper = wrapper; }
         public InputAction @Dash => m_Wrapper.m_Player_Dash;
+        public InputAction @SanityPill => m_Wrapper.m_Player_SanityPill;
+        public InputAction @InsanityPill => m_Wrapper.m_Player_InsanityPill;
+        public InputAction @Food => m_Wrapper.m_Player_Food;
         public InputAction @Movement => m_Wrapper.m_Player_Movement;
         public InputAction @Attack => m_Wrapper.m_Player_Attack;
         public InputAction @Mouse => m_Wrapper.m_Player_Mouse;
@@ -247,6 +316,15 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 @Dash.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDash;
                 @Dash.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDash;
                 @Dash.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDash;
+                @SanityPill.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSanityPill;
+                @SanityPill.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSanityPill;
+                @SanityPill.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSanityPill;
+                @InsanityPill.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInsanityPill;
+                @InsanityPill.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInsanityPill;
+                @InsanityPill.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInsanityPill;
+                @Food.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnFood;
+                @Food.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnFood;
+                @Food.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnFood;
                 @Movement.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMovement;
                 @Movement.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMovement;
                 @Movement.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMovement;
@@ -263,6 +341,15 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 @Dash.started += instance.OnDash;
                 @Dash.performed += instance.OnDash;
                 @Dash.canceled += instance.OnDash;
+                @SanityPill.started += instance.OnSanityPill;
+                @SanityPill.performed += instance.OnSanityPill;
+                @SanityPill.canceled += instance.OnSanityPill;
+                @InsanityPill.started += instance.OnInsanityPill;
+                @InsanityPill.performed += instance.OnInsanityPill;
+                @InsanityPill.canceled += instance.OnInsanityPill;
+                @Food.started += instance.OnFood;
+                @Food.performed += instance.OnFood;
+                @Food.canceled += instance.OnFood;
                 @Movement.started += instance.OnMovement;
                 @Movement.performed += instance.OnMovement;
                 @Movement.canceled += instance.OnMovement;
@@ -279,6 +366,9 @@ public partial class @Controls : IInputActionCollection2, IDisposable
     public interface IPlayerActions
     {
         void OnDash(InputAction.CallbackContext context);
+        void OnSanityPill(InputAction.CallbackContext context);
+        void OnInsanityPill(InputAction.CallbackContext context);
+        void OnFood(InputAction.CallbackContext context);
         void OnMovement(InputAction.CallbackContext context);
         void OnAttack(InputAction.CallbackContext context);
         void OnMouse(InputAction.CallbackContext context);

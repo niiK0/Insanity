@@ -24,7 +24,7 @@ public class ItemSpawner : MonoBehaviour
         if (RoomCleared)
         {
             RandItem = Random.Range(0, Items.Length);
-            Instantiate(Items[RandItem], this.transform.position, Quaternion.identity);
+            Instantiate(Items[RandItem], transform.position, Quaternion.identity);
             RoomCleared= false;
         }
     }

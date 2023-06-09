@@ -5,8 +5,7 @@ using UnityEngine.EventSystems;
 
 public class HoverTip : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-    public string tipTitle;
-    public string tipDesc;
+    public Item item;
 
     public void OnPointerEnter(PointerEventData eventData)
     {
@@ -20,6 +19,6 @@ public class HoverTip : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
     private void ShowMessage()
     {
-        HoverTipManager.OnMouseHover(tipTitle, tipDesc, Input.mousePosition);
+        HoverTipManager.OnMouseHover(item.name, item.desc, Input.mousePosition);
     }
 }

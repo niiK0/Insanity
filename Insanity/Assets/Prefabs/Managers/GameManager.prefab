@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6190297681029337951}
   - component: {fileID: 867225330678089526}
   - component: {fileID: 1451611352}
+  - component: {fileID: 7427884871178704476}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -60,17 +61,40 @@ MonoBehaviour:
   items:
   - name: Trinity Force
     desc: 33333333333333
-    icon: {fileID: 21300000, guid: 5ce6ffa32d80fe749be64ca170c2506d, type: 3}
+    icon: {fileID: 581010461, guid: c1418756eb50e0149b9f252330fffcce, type: 3}
     type: 1
     value: 030000000300000003000000
     statName:
     - Strength
     - Health
     - Speed
+    quantity: 1
+    enabled: 1
   - name: Warmog
     desc: You become invincible
     icon: {fileID: -603239153, guid: c1418756eb50e0149b9f252330fffcce, type: 3}
     type: 0
-    value: 0f270000
+    value: 9f860100
     statName:
     - Health
+    quantity: 1
+    enabled: 1
+--- !u!114 &7427884871178704476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2714086394230168981}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a91fa7cfac58504787464f9e313d6b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sanityPillsAmount: 1
+  insanityPillsAmount: 1
+  foodItemAmount: 2
+  sanityValue: 10
+  insanityValue: 10
+  foodValue: 20
+  gameInput: {fileID: 0}

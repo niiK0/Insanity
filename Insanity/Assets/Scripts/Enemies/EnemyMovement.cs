@@ -34,7 +34,10 @@ public class EnemyMovement : MonoBehaviour
 
     private void Update()
     {
-        anim.SetFloat("speed", agent.speed / 10);
+        if(transform.gameObject.tag == "Boss")
+        {
+            anim.SetFloat("speed", agent.speed / 10);
+        }
 
         if (player == null)
         {

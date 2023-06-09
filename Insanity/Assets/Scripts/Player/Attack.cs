@@ -1,3 +1,4 @@
+using StatSystem;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,7 +12,6 @@ public class Attack : MonoBehaviour
 
     [SerializeField] private GameInput gameInput;
     [SerializeField] Collider weapCollider;
-
 
     // Start is called before the first frame update
     void Start()

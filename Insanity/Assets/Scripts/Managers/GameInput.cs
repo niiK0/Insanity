@@ -11,6 +11,9 @@ public class GameInput : MonoBehaviour
     private Controls controls;
     public event Action OnDashAction;
     public event Action OnAttackAction;
+    public event Action OnTakeSanityPill;
+    public event Action OnTakeInsanityPill;
+    public event Action OnTakeFood;
 
     private void Awake()
     {
@@ -23,6 +26,24 @@ public class GameInput : MonoBehaviour
         controls.Player.Enable();
         controls.Player.Dash.performed += Dash_performed;
         controls.Player.Attack.performed += Attack_performed;
+        controls.Player.SanityPill.performed += SanityPill_performed;
+        controls.Player.InsanityPill.performed += InsanityPill_performed;
+        controls.Player.Food.performed += Food_performed;
+    }
+
+    private void Food_performed(InputAction.CallbackContext obj)
+    {
+        OnTakeFood?.Invoke();
+    }
+
+    private void InsanityPill_performed(InputAction.CallbackContext obj)
+    {
+        OnTakeInsanityPill?.Invoke();
+    }
+
+    private void SanityPill_performed(InputAction.CallbackContext obj)
+    {
+        OnTakeSanityPill?.Invoke();
     }
 
     private void Attack_performed(InputAction.CallbackContext obj)

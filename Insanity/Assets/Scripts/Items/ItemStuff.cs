@@ -28,8 +28,37 @@ public class ItemStuff : MonoBehaviour
         
     }
 
+    public Item FindItem(Item item)
+    {
+        foreach(Item lItem in items)
+        {
+            //Debug.Log("Checked if item: " + lItem.name + " | item: " + item.name);
+            if (lItem.name == item.name)
+            {
+                return lItem;
+            }
+        }
+
+        return null;
+    }
+
     public void PickupItem(Item item)
     {
+        Item foundItem = FindItem(item);
+
+        if(foundItem != null)
+        {
+            //Debug.Log("Found item wasnt null, increasing quantity from " + foundItem.quantity.ToString());
+            foundItem.quantity++;
+            FindObjectOfType<PassiveItemsUI>().UpdateItemUI(foundItem);
+        }
+        else
+        {
+            //Debug.Log("Found item was null, adding a new one");
+            items.Add(item);
+            FindObjectOfType<PassiveItemsUI>().AddItemToUI(item);
+        }
+
         for (int i = 0; i < item.statName.Length; i++)
         {
             string tempStatName = item.statName[i];
@@ -42,17 +71,18 @@ public class ItemStuff : MonoBehaviour
                 magnitude = tempStatValue,
                 type = item.type
             });
-        }
-
-        items.Add(item);
-
-        FindObjectOfType<PassiveItemsUI>().AddItemToUI(item);
+        }       
     }
 
     public void LoadItems()
     {
         for (int i = 0; i < items.Count; i++)
         {
+            if (!items[i].enabled)
+            {
+                continue;
+            }
+
             for (int j = 0; j < items[i].statName.Length; j++)
             {
                 string tempStatName = items[i].statName[j];
@@ -70,11 +100,3 @@ public class ItemStuff : MonoBehaviour
         }
     }
 }
-//public struct Item{
-//    public string name;
-//    public string desc;
-//    public Sprite icon; 
-//    public ModifierOperationType type;
-//    public int[] value;
-//    public string[] statName;
-//}

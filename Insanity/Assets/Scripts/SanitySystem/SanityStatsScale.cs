@@ -121,7 +121,7 @@ public class SanityStatsScale : MonoBehaviour
         strengthText.text = m_StatController.stats[s_Strength].value.ToString();
         dexterityText.text = m_StatController.stats[s_Dexterity].value.ToString();
         speedText.text = m_StatController.stats[s_Speed].value.ToString();
-        //healthText.text = m_StatController.stats[s_Health].value.ToString();
+
         healthBar.value = Mathf.Clamp01(Health / Mathf.Max(maxHealth, float.Epsilon));
         sanityText.text = sanity.sanity.ToString();
         if(sanity.sanity > 50)
@@ -155,6 +155,20 @@ public class SanityStatsScale : MonoBehaviour
             postProcessVolume.profile = insaneVolume;
         }
         
+    }
+
+    public void TakeSanityPill(int amount)
+    {
+        sanity.sanity += amount;
+        EditModifier();
+        UpdateText();
+    }
+
+    public void TakeInsanityPill(int amount)
+    {
+        sanity.sanity -= amount;
+        EditModifier();
+        UpdateText();
     }
 
     //updates the sanity per kill depending on each mode
