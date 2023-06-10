@@ -22,6 +22,7 @@ public class GameInput : MonoBehaviour
             instance = this;
             DontDestroyOnLoad(gameObject);
         }
+
         controls = new Controls();
         controls.Player.Enable();
         controls.Player.Dash.performed += Dash_performed;

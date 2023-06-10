@@ -34,23 +34,32 @@ public class UsableItems : MonoBehaviour
 
     private void GameInput_OnTakeSanityPill()
     {
-        sanityPillsAmount--;
-        player.GetComponent<SanityStatsScale>().TakeSanityPill(sanityValue);
-        PassiveItemsUI.instance.UpdateSanityPillUI(sanityPillsAmount);
+        if (sanityPillsAmount > 0)
+        {
+            sanityPillsAmount--;
+            player.GetComponent<SanityStatsScale>().TakeSanityPill(sanityValue);
+            PassiveItemsUI.instance.UpdateSanityPillUI(sanityPillsAmount);
+        }
     }
 
     private void GameInput_OnTakeInsanityPill()
     {
-        insanityPillsAmount--;
-        player.GetComponent<SanityStatsScale>().TakeInsanityPill(insanityValue);
-        PassiveItemsUI.instance.UpdateInsanityPillUI(insanityPillsAmount);
+        if(insanityPillsAmount > 0)
+        {
+            insanityPillsAmount--;
+            player.GetComponent<SanityStatsScale>().TakeInsanityPill(insanityValue);
+            PassiveItemsUI.instance.UpdateInsanityPillUI(insanityPillsAmount);
+        }
     }
 
     private void GameInput_OnTakeFood()
     {
-        foodItemAmount--;
-        player.GetComponent<SimpleHealth>().TakeFood(foodValue);
-        PassiveItemsUI.instance.UpdateFoodItemUI(foodItemAmount);
+        if(foodItemAmount > 0)
+        {
+            foodItemAmount--;
+            player.GetComponent<SimpleHealth>().TakeFood(foodValue);
+            PassiveItemsUI.instance.UpdateFoodItemUI(foodItemAmount);
+        }
     }
 }
 

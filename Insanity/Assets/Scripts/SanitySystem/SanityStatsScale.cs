@@ -71,6 +71,7 @@ public class SanityStatsScale : MonoBehaviour
         sanity.sanity = 50;
 
         UpdateHealth();
+        UpdateText();
 
         //add a stat modifier of type sanity to all of the stats we need, that way we just edit that one modifier only
         m_StatController.stats[s_Health].AddModifier(
@@ -116,7 +117,7 @@ public class SanityStatsScale : MonoBehaviour
     }
 
     //just updates all the text with the current values of stats and sanity
-    private void UpdateText()
+    public void UpdateText()
     {
         strengthText.text = m_StatController.stats[s_Strength].value.ToString();
         dexterityText.text = m_StatController.stats[s_Dexterity].value.ToString();

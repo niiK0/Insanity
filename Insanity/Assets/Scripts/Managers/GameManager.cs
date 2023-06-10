@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -25,5 +26,14 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void LeaveStartRoom(Item item)
+    {
+        GetComponent<ItemStuff>().PickupItem(item);
+        //load maze scene
+        SceneManager.LoadScene(2);
+        PlayerSingle.instance.GetComponent<SanityStatsScale>().UpdateHealth();
+        PlayerSingle.instance.GetComponent<SanityStatsScale>().UpdateText();
     }
 }
