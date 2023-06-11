@@ -295,6 +295,7 @@ GameObject:
   - component: {fileID: 5557951528669719862}
   - component: {fileID: 2224596798878041221}
   - component: {fileID: 5621046720916797405}
+  - component: {fileID: 673791858537991257}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -456,7 +457,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cameraHolderTransform: {fileID: 8873496864486006088}
   weaponTransform: {fileID: 8297148219943699379}
-  mouseSensitivity: 35
+  mouseSensitivity: 15
   gameInput: {fileID: 0}
 --- !u!114 &5621046720916797405
 MonoBehaviour:
@@ -468,6 +469,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1192e69c22a5d924abba2723348f54b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &673791858537991257
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3315010846937372388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 512e9703cbc48074fb58fab56225ddd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &4673893109377010273

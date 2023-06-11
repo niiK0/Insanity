@@ -12,7 +12,7 @@ public class GoToBoss : MonoBehaviour
         if (other.CompareTag("Player") && !AlreadyChecked)
         {
             //Go to boss scene
-            SceneManager.LoadScene(2);
+            SceneManager.LoadScene(3);
 
             //Already checked stops mobs from spawning again
             AlreadyChecked = true;

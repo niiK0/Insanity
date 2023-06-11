@@ -51,7 +51,7 @@ public class EnemyHealth : MonoBehaviour
 
         if (health <= 0 && gameObject.tag.Equals("Boss"))
         {
-            SceneManager.LoadScene(3);
+            SceneManager.LoadScene(4);
         }
 
         if (health <= 0)
@@ -69,7 +69,8 @@ public class EnemyHealth : MonoBehaviour
     {
         //anim.applyRootMotion = true;
         //spawn item
-        Instantiate(statBuffItem, new Vector3(transform.position.x, transform.position.y + 1f, transform.position.z), Quaternion.identity);
+        if(gameObject.tag != "Boss")
+            Instantiate(statBuffItem, new Vector3(transform.position.x, transform.position.y + 1f, transform.position.z), Quaternion.identity);
 
         healthSlider.gameObject.SetActive(false);
         GetComponent<EnemyMovement>().enabled = false;

@@ -13,8 +13,6 @@ public class EnemySpawner : MonoBehaviour
     {
         if (other.CompareTag("Player") && !alreadyChecked)
         {
-
-           
             // Spawn a new enemy
             Vector3 randomPosition = transform.position + Random.insideUnitSphere * radius;
             Instantiate(enemyPrefab, randomPosition, Quaternion.identity);

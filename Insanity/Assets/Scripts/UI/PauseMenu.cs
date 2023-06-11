@@ -8,8 +8,9 @@ public class PauseMenu : MonoBehaviour
     public GameObject pauseMenu;
     public GameObject inventory;
     public GameObject gui;
+    public GameObject crosshair;
 
-    public static bool isPaused;
+    public static bool isPaused, inventoryOpen;
 
     // Start is called before the first frame update
     void Start()
@@ -26,25 +27,31 @@ public class PauseMenu : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if(isPaused)
+            if (!inventoryOpen)
             {
-                ResumeGame();
-            }
-            else
-            {
-                PauseGame();
+                if(isPaused)
+                {
+                    ResumeGame();
+                }
+                else
+                {
+                    PauseGame();
+                }
             }
         }
 
         if (Input.GetKeyDown(KeyCode.Tab))
         {
-            if (isPaused)
+            if (!isPaused)
             {
-                CloseInventory();
-            }
-            else
-            {
-                OpenInventory();
+                if (inventoryOpen)
+                {
+                    CloseInventory();
+                }
+                else
+                {
+                    OpenInventory();
+                }
             }
         }
     }
@@ -57,6 +64,7 @@ public class PauseMenu : MonoBehaviour
         isPaused = true;
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
+        crosshair.SetActive(false);
     }
 
     public void ResumeGame()
@@ -67,6 +75,7 @@ public class PauseMenu : MonoBehaviour
         isPaused = false;
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
+        crosshair.SetActive(true);
     }
 
     public void OpenInventory()
@@ -74,9 +83,10 @@ public class PauseMenu : MonoBehaviour
         inventory.SetActive(true);
         gui.SetActive(false);
         Time.timeScale = 0f;
-        isPaused = true;
+        inventoryOpen = true;
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
+        crosshair.SetActive(false);
     }
 
     public void CloseInventory()
@@ -84,9 +94,10 @@ public class PauseMenu : MonoBehaviour
         inventory.SetActive(false);
         gui.SetActive(true);
         Time.timeScale = 1f;
-        isPaused = false;
+        inventoryOpen = false;
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
+        crosshair.SetActive(true);
     }
 
     public void GoToMainMenu()
@@ -101,3 +112,4 @@ public class PauseMenu : MonoBehaviour
     }
 
 }
+

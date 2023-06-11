@@ -6,6 +6,8 @@ public class RoomBehaviour : MonoBehaviour
 {
     public GameObject[] doors;
 
+    public GameObject[] exitSigns;
+
     public void UpdateRoom(bool[] status)
     {
         for (int i = 0; i < status.Length; i++)
