@@ -129,6 +129,16 @@ MonoBehaviour:
     - Health
     quantity: 1
     enabled: 0
+  - name: Return to Monke
+    desc: You have returned to Monke (-5 STR, -20HP)
+    icon: {fileID: 230265274, guid: c1418756eb50e0149b9f252330fffcce, type: 3}
+    type: 0
+    value: fbffffffecffffff
+    statName:
+    - Strength
+    - Health
+    quantity: 1
+    enabled: 0
 --- !u!114 &7427884871178704476
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -141,7 +151,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a91fa7cfac58504787464f9e313d6b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sanityPillsAmount: 1
+  sanityPillsAmount: 10
   insanityPillsAmount: 1
   foodItemAmount: 2
   sanityValue: 10

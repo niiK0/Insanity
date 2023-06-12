@@ -19,8 +19,8 @@ TagManager:
   - Ground
   - Object
   - Weapon
-  - 
-  - 
+  - Enemy
+  - Player
   - 
   - 
   - 

@@ -25,7 +25,13 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(SceneManager.GetActiveScene() == SceneManager.GetSceneByBuildIndex(4))
+        {
+            Destroy(PlayerSingle.instance.gameObject);
+            Destroy(AudioManager.instance.gameObject);
+            Destroy(PassiveItemsUI.instance.gameObject);
+            Destroy(gameObject);
+        }
     }
 
     public void LeaveStartRoom(Item item)
@@ -35,5 +41,6 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(2);
         PlayerSingle.instance.GetComponent<SanityStatsScale>().UpdateHealth();
         PlayerSingle.instance.GetComponent<SanityStatsScale>().UpdateText();
+        PlayerSingle.instance.transform.position = new Vector3(0f, 2f, 0f);
     }
 }

@@ -6,7 +6,7 @@ public class AttributeItem : MonoBehaviour
 {
     private Item item;
     private string[] statStrings = {
-        "Dexterity",
+        "Health",
         "Strength",
         "Speed"
     };

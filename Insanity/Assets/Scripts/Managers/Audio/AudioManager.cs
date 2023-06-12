@@ -6,10 +6,17 @@ public class AudioManager : MonoBehaviour
 {
     public Sound[] sounds;
 
+    public static AudioManager instance = null;
+
     private void Awake()
     {
-        DontDestroyOnLoad(gameObject);
-        foreach(Sound s in sounds)
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+
+        foreach (Sound s in sounds)
         {
             s.source = gameObject.AddComponent<AudioSource>();
             s.source.clip = s.clip;
@@ -18,6 +25,7 @@ public class AudioManager : MonoBehaviour
             s.source.pitch = s.pitch;
         }
     }
+
     private void Start()
     {
         Play("Theme");

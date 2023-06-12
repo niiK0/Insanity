@@ -29,17 +29,25 @@ public class SimpleHealth : MonoBehaviour
 
     public void TakeDamage(GameObject source)
     {
-        m_StatController.stats["Health"].AddModifier(new StatModifier
+        AudioManager.instance.Play("DamagePlayer");
+
+
+        StatModifier damage = new StatModifier
         {
             source = source,
             magnitude = -source.GetComponent<StatController>().stats["Strength"].value,
             type = ModifierOperationType.Additive
-        });
+        };
+
+        //(m_StatController.stats["Health"] as Attribute).ApplyModifier(damage);
+
+        (m_StatController.stats["Health"] as Attribute).AddModifier(damage);
 
         GetComponent<SanityStatsScale>().UpdateHealth();
 
         if (health <= 0)
         {
+            AudioManager.instance.Play("PlayerDeath");
             SceneManager.LoadScene(0);
         }
     }

@@ -36,6 +36,7 @@ public class UsableItems : MonoBehaviour
     {
         if (sanityPillsAmount > 0)
         {
+            AudioManager.instance.Play("TakePill");
             sanityPillsAmount--;
             player.GetComponent<SanityStatsScale>().TakeSanityPill(sanityValue);
             PassiveItemsUI.instance.UpdateSanityPillUI(sanityPillsAmount);
@@ -46,6 +47,7 @@ public class UsableItems : MonoBehaviour
     {
         if(insanityPillsAmount > 0)
         {
+            AudioManager.instance.Play("TakePill");
             insanityPillsAmount--;
             player.GetComponent<SanityStatsScale>().TakeInsanityPill(insanityValue);
             PassiveItemsUI.instance.UpdateInsanityPillUI(insanityPillsAmount);
@@ -56,6 +58,7 @@ public class UsableItems : MonoBehaviour
     {
         if(foodItemAmount > 0)
         {
+            AudioManager.instance.Play("EatFood");
             foodItemAmount--;
             player.GetComponent<SimpleHealth>().TakeFood(foodValue);
             PassiveItemsUI.instance.UpdateFoodItemUI(foodItemAmount);

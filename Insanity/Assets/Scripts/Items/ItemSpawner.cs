@@ -8,24 +8,20 @@ public class ItemSpawner : MonoBehaviour
     public GameObject[] Items;
 
     public bool RoomCleared = false;
+    private bool doneObjective = false;
 
     //Spawner variables
     public float radius;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     // Update is called once per frame
     void Update()
     {
-        if (RoomCleared)
+        if (RoomCleared && !doneObjective)
         {
+            doneObjective = true;
             RandItem = Random.Range(0, Items.Length);
             Instantiate(Items[RandItem], transform.position, Quaternion.identity);
-            RoomCleared= false;
+            RoomCleared=false;
         }
     }
 }

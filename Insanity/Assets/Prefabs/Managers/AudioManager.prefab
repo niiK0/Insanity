@@ -55,3 +55,48 @@ MonoBehaviour:
     volume: 0.01
     pitch: 1
     source: {fileID: 0}
+  - name: Dash
+    clip: {fileID: 8300000, guid: c800d277ad13c0f43ad246fa3f18837e, type: 3}
+    volume: 0.1
+    pitch: 1
+    source: {fileID: 0}
+  - name: DamagePlayer
+    clip: {fileID: 8300000, guid: 07acce80e3fc67842ae63b987100352d, type: 3}
+    volume: 0.1
+    pitch: 1
+    source: {fileID: 0}
+  - name: Door
+    clip: {fileID: 8300000, guid: 892d2b1690603784f9b171c86a906889, type: 3}
+    volume: 0.1
+    pitch: 1
+    source: {fileID: 0}
+  - name: BossDie
+    clip: {fileID: 8300000, guid: e2eaca2e7875df34cae3ee3762fc8aed, type: 3}
+    volume: 0.1
+    pitch: 1
+    source: {fileID: 0}
+  - name: EatFood
+    clip: {fileID: 8300000, guid: 893716259c4f36a41a69f6f65b90b355, type: 3}
+    volume: 0.1
+    pitch: 1
+    source: {fileID: 0}
+  - name: MonsterAttack
+    clip: {fileID: 8300000, guid: 1f76845d9164bff42ae6f3c0c6efaa31, type: 3}
+    volume: 0.1
+    pitch: 1
+    source: {fileID: 0}
+  - name: NurseDie
+    clip: {fileID: 8300000, guid: 08844c8a75040c34abd54d976d2cec98, type: 3}
+    volume: 0.1
+    pitch: 1
+    source: {fileID: 0}
+  - name: TakePill
+    clip: {fileID: 8300000, guid: 57f0327a9bb2b344db2ccfa77552a995, type: 3}
+    volume: 0.1
+    pitch: 1
+    source: {fileID: 0}
+  - name: PlayerAttack
+    clip: {fileID: 8300000, guid: 5c4671a58ecfbf04984a4b3063e94d0e, type: 3}
+    volume: 0.1
+    pitch: 1
+    source: {fileID: 0}

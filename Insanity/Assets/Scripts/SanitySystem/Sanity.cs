@@ -10,7 +10,7 @@ namespace SanitySystem
 
         public void CalculateValues()
         {
-            this.sanity = Mathf.Max(10, Mathf.Min(90, this.sanity));
+            //this.sanity = Mathf.Max(10, Mathf.Min(90, this.sanity));
 
             if (sanity < 50)
             {

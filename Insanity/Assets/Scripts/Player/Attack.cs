@@ -88,6 +88,11 @@ public class Attack : MonoBehaviour
 
     }
 
+    private void PlayAttackSound()
+    {
+        AudioManager.instance.Play("PlayerAttack");
+    }
+
     private void DisablePlayerWeaponCollider()
     {
         weapCollider.GetComponent<Collider>().enabled = false;

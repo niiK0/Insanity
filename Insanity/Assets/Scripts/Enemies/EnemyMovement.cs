@@ -16,6 +16,7 @@ public class EnemyMovement : MonoBehaviour
     private Transform player;
     public bool isMoving = false;
     [SerializeField] private Animator anim;
+    public float attackDist;
 
 
     protected StatController m_StatController;
@@ -30,6 +31,7 @@ public class EnemyMovement : MonoBehaviour
         //rb = GetComponent<Rigidbody>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
         agent.speed = speed;
+        agent.updateRotation = false;
     }
 
     private void Update()
@@ -43,18 +45,19 @@ public class EnemyMovement : MonoBehaviour
         {
             player = GameObject.FindGameObjectWithTag("Player").transform;
         }
-        else
+
+        transform.rotation = (Quaternion.RotateTowards(transform.rotation, player.rotation, -220 * Time.deltaTime));
+
+            
+        if (Vector3.Distance(transform.position, player.position) >= attackDist)
         {
             agent.SetDestination(player.position);
-        }
-
-        if(agent.velocity != Vector3.zero)
-        {
             isMoving = true;
             anim.SetBool("isMoving", true);
         }
         else
         {
+            agent.SetDestination(transform.position);
             isMoving = false;
             anim.SetBool("isMoving", false);
         }

@@ -41,6 +41,7 @@ public class EnemyAttack : MonoBehaviour
 
     public void EnableEnemyHandCollider()
     {
+        AudioManager.instance.Play("MonsterAttack");
         handCollider.GetComponent<Collider>().enabled = true;
     }
 }

@@ -31,12 +31,6 @@ namespace StatSystem
             CalculateValue();
         }
 
-        public void EditModifier(StatModifier modifier)
-        {
-            m_Modifiers[m_Modifiers.Count-1] = modifier;
-            CalculateValue();
-        }
-
         public void AddModifier (StatModifier modifier)
         {
             m_Modifiers.Add(modifier);

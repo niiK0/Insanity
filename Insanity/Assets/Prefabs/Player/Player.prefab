@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8693429728611547962}
   - component: {fileID: 7623047443583618566}
   - component: {fileID: 9183792043185775522}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: WeaponCam
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -121,7 +121,7 @@ GameObject:
   - component: {fileID: 3827966428489879115}
   - component: {fileID: 3136822861837660636}
   - component: {fileID: 4298398069737397164}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -216,7 +216,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6144711033572864119}
   - component: {fileID: 7546889505505811603}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: VCAM
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -296,7 +296,7 @@ GameObject:
   - component: {fileID: 2224596798878041221}
   - component: {fileID: 5621046720916797405}
   - component: {fileID: 673791858537991257}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -434,11 +434,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2628a64ae8a9b0459299f0ef0dde5d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHealth: 0
   strengthText: {fileID: 0}
   dexterityText: {fileID: 0}
   speedText: {fileID: 0}
   healthBar: {fileID: 0}
   sanityText: {fileID: 0}
+  INSANEText: {fileID: 0}
+  SANEText: {fileID: 0}
   sanityModeText: {fileID: 0}
   postProcessVolume: {fileID: 0}
   insaneVolume: {fileID: 11400000, guid: c929d87b4e435f64a9f4e3ccc44199e0, type: 2}
@@ -494,7 +497,7 @@ GameObject:
   - component: {fileID: 3574988864893371210}
   - component: {fileID: 6885917623172360970}
   - component: {fileID: 957680600}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: cm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -554,7 +557,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8873496864486006088}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: CamPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -591,7 +594,7 @@ GameObject:
   - component: {fileID: 7244950035942922431}
   - component: {fileID: 1909159842283503553}
   - component: {fileID: 6292847414432273428}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Visual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -734,6 +737,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: ffe0b80e6ac9e134d91902e42f757ad3, type: 3}
       propertyPath: m_Name
       value: Axe
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ffe0b80e6ac9e134d91902e42f757ad3, type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: ffe0b80e6ac9e134d91902e42f757ad3, type: 3}
       propertyPath: m_IsActive

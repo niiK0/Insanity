@@ -49,6 +49,7 @@ public class Movement : MonoBehaviour
     {
         if (dash_timer >= dash_cooldown)
         {
+            AudioManager.instance.Play("Dash");
             dash_velocity = Camera.main.transform.forward * move_input.y + Camera.main.transform.right * move_input.x;
             dash_velocity.y = 0f;
             is_dashing = true;

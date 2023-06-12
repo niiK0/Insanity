@@ -153,6 +153,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 7150161090919988667, guid: 4e4614c44f7ab9d47a942e467f4f2f70, type: 3}
   radius: 1
+  minAmount: 0
+  maxAmount: 0
+  itemSpawner: {fileID: 0}
+  rDoor: {fileID: 0}
+  lDoor: {fileID: 0}
+  uDoor: {fileID: 0}
+  dDoor: {fileID: 0}
+  currentRoom: 0
+  spawnExtraMobs: 0
+  extraMinAmount: 0
+  extraMaxAmount: 0
 --- !u!65 &1499447912950783295
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3552,6 +3563,41 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f8ca8b584672e2c44b786aedd156b7eb, type: 3}
+--- !u!1 &9167307363760919409 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 148552, guid: f8ca8b584672e2c44b786aedd156b7eb, type: 3}
+  m_PrefabInstance: {fileID: 9167307363760772921}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &377412646
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9167307363760919409}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AgentTypeID: 0
+  m_CollectObjects: 0
+  m_Size: {x: 10, y: 10, z: 10}
+  m_Center: {x: 0, y: 2, z: 0}
+  m_LayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_UseGeometry: 0
+  m_DefaultArea: 0
+  m_IgnoreNavMeshAgent: 1
+  m_IgnoreNavMeshObstacle: 1
+  m_OverrideTileSize: 0
+  m_TileSize: 256
+  m_OverrideVoxelSize: 0
+  m_VoxelSize: 0.16666667
+  m_MinRegionArea: 2
+  m_NavMeshData: {fileID: 23800000, guid: 19c4b9c8619edc84594eb41e39c3334f, type: 2}
+  m_BuildHeightMesh: 0
 --- !u!4 &9167307363761137415 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 438334, guid: f8ca8b584672e2c44b786aedd156b7eb, type: 3}

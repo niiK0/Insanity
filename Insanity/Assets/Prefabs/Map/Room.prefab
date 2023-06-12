@@ -160,9 +160,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Items:
   - {fileID: 1810276526992627509, guid: 31634872e3c710446953696cd1aad4d6, type: 3}
-  - {fileID: 8915738225110230790, guid: 01d0d8cde5c3d21438282986c686e88b, type: 3}
   RoomCleared: 0
-  radius: 2
+  radius: 3
 --- !u!1 &1567918520348926467
 GameObject:
   m_ObjectHideFlags: 0
@@ -597,7 +596,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 4748769828830700506, guid: fde5e8b2cc9e250449bf0ee17dbff9b0, type: 3}
-  radius: 5
+  radius: 15
+  minAmount: 1
+  maxAmount: 4
+  itemSpawner: {fileID: 6925405868655047447}
+  rDoor: {fileID: 7060710403774723064}
+  lDoor: {fileID: 5666036425511150247}
+  uDoor: {fileID: 8581028427877248273}
+  dDoor: {fileID: 2507095813558296099}
+  currentRoom: 0
+  spawnExtraMobs: 0
+  extraMinAmount: 3
+  extraMaxAmount: 8
 --- !u!65 &2666092715311641437
 BoxCollider:
   m_ObjectHideFlags: 0

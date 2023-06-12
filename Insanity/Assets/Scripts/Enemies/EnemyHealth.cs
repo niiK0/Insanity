@@ -51,11 +51,13 @@ public class EnemyHealth : MonoBehaviour
 
         if (health <= 0 && gameObject.tag.Equals("Boss"))
         {
+            AudioManager.instance.Play("BossDie");
             SceneManager.LoadScene(4);
         }
 
         if (health <= 0)
         {
+            AudioManager.instance.Play("NurseDie");
             GetComponent<Collider>().enabled = false;
             anim.SetTrigger("die");
             EnemyDie();

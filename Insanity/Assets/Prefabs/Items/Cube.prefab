@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2148538541795389147}
   - component: {fileID: 4671972554087399571}
   - component: {fileID: 8225704172320915253}
-  - component: {fileID: 3788485323702351950}
+  - component: {fileID: 1273308478}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -63,7 +63,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: -7058663904652950801, guid: c5f69b072fc0d6248803fc903e08c0d3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -93,12 +93,12 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1810276526992627509}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &3788485323702351950
+--- !u!114 &1273308478
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -107,6 +107,103 @@ MonoBehaviour:
   m_GameObject: {fileID: 1810276526992627509}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db7bdbadad00f0044957c87c81ba4d4d, type: 3}
+  m_Script: {fileID: 11500000, guid: 5368e0e5b7e17ea41854e8a0afbe6aa8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  items:
+  - name: Lord's Hand
+    desc: Your belief makes you tougher (+5 HP) and stronger (+2 STR)
+    icon: {fileID: -1956029832, guid: c1418756eb50e0149b9f252330fffcce, type: 3}
+    type: 0
+    value: 0500000002000000
+    statName:
+    - Health
+    - Strength
+    quantity: 1
+    enabled: 0
+  - name: Beast's Fury
+    desc: Makes you faster (+1 SPD) and stronger (+2 STR)
+    icon: {fileID: -126351130, guid: c1418756eb50e0149b9f252330fffcce, type: 3}
+    type: 0
+    value: 0100000002000000
+    statName:
+    - Speed
+    - Strength
+    quantity: 1
+    enabled: 0
+  - name: 3rd Eye
+    desc: Your critical damage is increased (+1 CritX)
+    icon: {fileID: 477925829, guid: c1418756eb50e0149b9f252330fffcce, type: 3}
+    type: 0
+    value: 01000000
+    statName:
+    - CritX
+    quantity: 1
+    enabled: 0
+  - name: Heart of Steel
+    desc: You become tougher (+10 HP)
+    icon: {fileID: 1294618999, guid: c1418756eb50e0149b9f252330fffcce, type: 3}
+    type: 0
+    value: 0a000000
+    statName:
+    - Health
+    quantity: 1
+    enabled: 0
+  - name: The Reader
+    desc: You remember an old book.. (+5 STR)
+    icon: {fileID: -1267705338, guid: c1418756eb50e0149b9f252330fffcce, type: 3}
+    type: 0
+    value: 05000000
+    statName:
+    - Strength
+    quantity: 1
+    enabled: 0
+  - name: Golden Fish
+    desc: You met the Golden Fish, he granted you its knowledge (+1 ALL STATS)
+    icon: {fileID: -554579327, guid: c1418756eb50e0149b9f252330fffcce, type: 3}
+    type: 0
+    value: 010000000100000001000000
+    statName:
+    - Health
+    - Speed
+    - Strength
+    quantity: 1
+    enabled: 0
+  - name: Devil's Messenger
+    desc: You have been warned by the devil for a bad deed (-2 SPD/STR)
+    icon: {fileID: 1261613037, guid: c1418756eb50e0149b9f252330fffcce, type: 3}
+    type: 0
+    value: fefffffffeffffff
+    statName:
+    - Speed
+    - Strength
+    quantity: 1
+    enabled: 0
+  - name: Return to Monke
+    desc: You have returned to Monke (-5 STR, -20HP)
+    icon: {fileID: 230265274, guid: c1418756eb50e0149b9f252330fffcce, type: 3}
+    type: 0
+    value: fbffffffecffffff
+    statName:
+    - Strength
+    - Health
+    quantity: 1
+    enabled: 0
+  - name: Death's Experience
+    desc: Death has flashed through your eyes before making you stronger (+3 STR)
+    icon: {fileID: 2130964148, guid: c1418756eb50e0149b9f252330fffcce, type: 3}
+    type: 0
+    value: 03000000
+    statName:
+    - Strength
+    quantity: 1
+    enabled: 0
+  - name: Bomba
+    desc: BIIIIIIIIIIIRL (+10 STR)
+    icon: {fileID: 1393392520, guid: c1418756eb50e0149b9f252330fffcce, type: 3}
+    type: 0
+    value: 0a000000
+    statName:
+    - Strength
+    quantity: 1
+    enabled: 0

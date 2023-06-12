@@ -23,8 +23,9 @@ public class SanityStatsScale : MonoBehaviour
     private const string s_DashRange = "DashRange";
 
     //create public int variables for each stat from the stat controller
-    public int maxHealth => (int)(m_StatController.stats[s_Health] as Attribute).currentValue;
+    //public int maxHealth => (int)(m_StatController.stats[s_Health] as Attribute).currentValue;
     public int Health => (int)m_StatController.stats[s_Health].value;
+    public int maxHealth = 100;
     //public int maxHealth => (int)m_StatController.stats[s_Health].baseValue;
     public int Strength => (int)m_StatController.stats[s_Strength].value;
     public int Dexterity => (int)m_StatController.stats[s_Dexterity].value;
@@ -40,6 +41,9 @@ public class SanityStatsScale : MonoBehaviour
     public TextMeshProUGUI speedText;
     public Slider healthBar;
     public TextMeshProUGUI sanityText;
+
+    public TextMeshProUGUI INSANEText;
+    public TextMeshProUGUI SANEText;
 
     //bool for sanitymode and get text of the sanity mode
     private bool sanityMode = true;
@@ -74,36 +78,36 @@ public class SanityStatsScale : MonoBehaviour
         UpdateText();
 
         //add a stat modifier of type sanity to all of the stats we need, that way we just edit that one modifier only
-        m_StatController.stats[s_Health].AddModifier(
-                new StatModifier
-                {
-                    source = this,
-                    magnitude = 1,
-                    type = ModifierOperationType.Sanity
-                });
+        //(m_StatController.stats[s_Health] as Attribute).ApplyModifier(
+        //        new StatModifier
+        //        {
+        //            source = this,
+        //            magnitude = 1,
+        //            type = ModifierOperationType.Sanity
+        //        });
 
-        m_StatController.stats[s_Strength].AddModifier(
-                new StatModifier
-                {
-                    source = this,
-                    magnitude = 1f,
-                    type = ModifierOperationType.Sanity
-                });
-        m_StatController.stats[s_Speed].AddModifier(
-                new StatModifier
-                {
-                    source = this,
-                    magnitude = 1,
-                    type = ModifierOperationType.Sanity
-                });
+        //m_StatController.stats[s_Strength].AddModifier(
+        //        new StatModifier
+        //        {
+        //            source = this,
+        //            magnitude = 1f,
+        //            type = ModifierOperationType.Sanity
+        //        });
+        //m_StatController.stats[s_Speed].AddModifier(
+        //        new StatModifier
+        //        {
+        //            source = this,
+        //            magnitude = 1,
+        //            type = ModifierOperationType.Sanity
+        //        });
 
-        m_StatController.stats[s_Dexterity].AddModifier(
-                new StatModifier
-                {
-                    source = this,
-                    magnitude = 1f,
-                    type = ModifierOperationType.Sanity
-                });
+        //m_StatController.stats[s_Dexterity].AddModifier(
+        //        new StatModifier
+        //        {
+        //            source = this,
+        //            magnitude = 1f,
+        //            type = ModifierOperationType.Sanity
+        //        });
     }
 
     private void Update()
@@ -112,8 +116,43 @@ public class SanityStatsScale : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Q))
         {
             sanityMode = !sanityMode;
+            SanityModeCheck();
         }
-        SanityModeCheck();
+
+        if (sanity.sanity >= 10 && sanity.sanity <= 90)
+        {
+            INSANEText.gameObject.SetActive(false);
+            INSANEText.gameObject.SetActive(false);
+        }
+
+        if (sanity.sanity <= 0 || sanity.sanity >= 100)
+        {
+            Debug.Log("ye we got sanity abuse lol " + sanity.sanity);
+            EnemySpawner[] rooms = FindObjectsOfType<EnemySpawner>();
+            for (int i = 0; i < rooms.Length; i++)
+            {
+                if (rooms[i].currentRoom)
+                {
+                    rooms[i].spawnExtraMobs = true;
+                    if(sanity.sanity <= 0)
+                    {
+                        INSANEText.gameObject.SetActive(true);
+                        sanity.sanity = 5;
+                    }
+                    else if (sanity.sanity >= 100)
+                    {
+                        SANEText.gameObject.SetActive(true);
+                        sanity.sanity = 95;
+                    }
+
+                    EditModifier();
+                    UpdateText();
+
+                    break;
+                }
+            }
+        }
+
     }
 
     //just updates all the text with the current values of stats and sanity
@@ -135,10 +174,11 @@ public class SanityStatsScale : MonoBehaviour
 
     public void UpdateHealth()
     {
-        //Debug.Log("Max HP:" + maxHealth);
-        //Debug.Log("Current HP:" + Health);
+        Debug.Log("Max HP:" + maxHealth);
+        Debug.Log("Current HP:" + Health);
         //Debug.Log("Clamped VAL:" + Mathf.Clamp01(Health / Mathf.Max(maxHealth, float.Epsilon)));
         healthBar.value = Mathf.Clamp01(Health / Mathf.Max(maxHealth, float.Epsilon));
+
     }
 
     //updates the sanity mode text
@@ -163,6 +203,7 @@ public class SanityStatsScale : MonoBehaviour
         sanity.sanity += amount;
         EditModifier();
         UpdateText();
+        UpdateHealth();
     }
 
     public void TakeInsanityPill(int amount)
@@ -170,6 +211,7 @@ public class SanityStatsScale : MonoBehaviour
         sanity.sanity -= amount;
         EditModifier();
         UpdateText();
+        UpdateHealth();
     }
 
     //updates the sanity per kill depending on each mode
@@ -196,34 +238,75 @@ public class SanityStatsScale : MonoBehaviour
         sanity.CalculateValues();
 
         {
-            m_StatController.stats[s_Health].EditModifier(
-                new StatModifier
-                {
-                    source = this,
-                    magnitude = (float)sanity.GetHealthModifier(),
-                    type = ModifierOperationType.Sanity
-                });
-            m_StatController.stats[s_Strength].EditModifier(
-                new StatModifier
-                {
-                    source = this,
-                    magnitude = (float)sanity.GetStrengthModifier(),
-                    type = ModifierOperationType.Sanity
-                });
-            m_StatController.stats[s_Dexterity].EditModifier(
-                new StatModifier
-                {
-                    source = this,
-                    magnitude = (float)sanity.GetHealthModifier(),
-                    type = ModifierOperationType.Sanity
-                });
-            m_StatController.stats[s_Speed].EditModifier(
+            m_StatController.stats[s_Health].RemoveModifierFromSource(this);
+            m_StatController.stats[s_Strength].RemoveModifierFromSource(this);
+            m_StatController.stats[s_Dexterity].RemoveModifierFromSource(this);
+            m_StatController.stats[s_Speed].RemoveModifierFromSource(this);
+
+
+            m_StatController.stats[s_Health].AddModifier(
                 new StatModifier
                 {
                     source = this,
                     magnitude = (float)sanity.GetStrengthModifier(),
-                    type = ModifierOperationType.Sanity
+                    type = ModifierOperationType.Multiplicative
                 });
+
+            maxHealth = (int)m_StatController.stats[s_Health].value;
+
+            m_StatController.stats[s_Strength].AddModifier(
+            new StatModifier
+            {
+                source = this,
+                magnitude = (float)sanity.GetStrengthModifier(),
+                type = ModifierOperationType.Multiplicative
+            });
+
+            m_StatController.stats[s_Dexterity].AddModifier(
+            new StatModifier
+            {
+                source = this,
+                magnitude = (float)sanity.GetStrengthModifier(),
+                type = ModifierOperationType.Multiplicative
+            });
+
+            m_StatController.stats[s_Speed].AddModifier(
+            new StatModifier
+            {
+                source = this,
+                magnitude = (float)sanity.GetStrengthModifier(),
+                type = ModifierOperationType.Multiplicative
+            });
+
+            //(m_StatController.stats[s_Health] as Attribute).RemoveModifierFromSource(this);
+            //(m_StatController.stats[s_Health] as Attribute).ApplyModifier(
+            //    new StatModifier
+            //    {
+            //        source = this,
+            //        magnitude = (float)sanity.GetHealthModifier(),
+            //        type = ModifierOperationType.Sanity
+            //    });
+            //m_StatController.stats[s_Strength].EditModifier(
+            //    new StatModifier
+            //    {
+            //        source = this,
+            //        magnitude = (float)sanity.GetStrengthModifier(),
+            //        type = ModifierOperationType.Sanity
+            //    });
+            //m_StatController.stats[s_Dexterity].EditModifier(
+            //    new StatModifier
+            //    {
+            //        source = this,
+            //        magnitude = (float)sanity.GetHealthModifier(),
+            //        type = ModifierOperationType.Sanity
+            //    });
+            //m_StatController.stats[s_Speed].EditModifier(
+            //    new StatModifier
+            //    {
+            //        source = this,
+            //        magnitude = (float)sanity.GetStrengthModifier(),
+            //        type = ModifierOperationType.Sanity
+            //    });
         }
 
         UpdateText();
